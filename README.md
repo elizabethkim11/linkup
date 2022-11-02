@@ -7,7 +7,7 @@ aforementioned, and can then input an expected graduation year filter and locati
 filter if they want to narrow their search.
 
 Users upload their resume, professional photo, description, and basic contact
-information (year and location) to our website.
+information (year and location) to our mobile app.
 
 Professional recruiters then use our database of profiles and swipe right or left on
 resumes to either accept or reject the candidate.
