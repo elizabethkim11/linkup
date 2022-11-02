@@ -1,6 +1,6 @@
 # linkup
 
-There are two types of users in our application: the verified recruiter and the open-to-join applicant.
+There are two types of users in our mobile application: the verified recruiter and the open-to-join applicant.
 
 The recruiter directly interacts with data that applicants have uploaded as
 aforementioned, and can then input an expected graduation year filter and location
