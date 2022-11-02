@@ -10,7 +10,7 @@ Users upload their resume, professional photo, description, and basic contact
 information (year and location) to our mobile app.
 
 Professional recruiters then use our database of profiles and swipe right or left on
-resumes to either accept or reject the candidate.
+resumes to either accept or reject the applicant.
 
 FEATURES:
 - Swipe left and right on candidates
