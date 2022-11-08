@@ -1,12 +1,12 @@
 import React from 'react';
 import {Text, Image, View, StyleSheet, ImageBackground} from 'react-native';
-import Card from './src/components/LinkUpCard';
+import Profile from './src/components/profile';
 
 
 const App = () =>{
   return (
     <View style={styles.pageContainer}>
-      <Card />
+      <Profile />
     </View>
   );
 }; 
