@@ -1,17 +1,18 @@
 import React from 'react'
 import {Text, ImageBackground, View, StyleSheet} from 'react-native'
 
-const Profile = () => {
+const Profile = (props) => {
+    const {name, headshot, blurb} = props.user;
     return(
         <View style={styles.profile}>
         <ImageBackground
           source={{
-            uri: 'https://static.boredpanda.com/blog/wp-content/uploads/2019/07/1-5d2cd2a0ac058__880.jpg'
+            uri: headshot,
           }}
           style={styles.headshot}>
           <View style={styles.profileInner}>
-            <Text style={styles.name}>sir meowington</Text>
-            <Text style={styles.blurb}>cute kitty</Text>
+            <Text style={styles.name}>{name}</Text>
+            <Text style={styles.blurb}>{blurb}</Text>
           </View>
         </ImageBackground>
       </View>
