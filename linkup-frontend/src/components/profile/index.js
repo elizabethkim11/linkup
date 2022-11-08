@@ -1,7 +1,7 @@
 import React from 'react'
 import {Text, ImageBackground, View, StyleSheet} from 'react-native'
 
-const Card = () => {
+const Profile = () => {
     return(
         <View style={styles.profile}>
         <ImageBackground
