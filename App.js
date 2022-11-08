@@ -1,3 +1,4 @@
+import 'react-native-gesture-handler';
 import React from 'react';
 import {Text, Image, View, StyleSheet, ImageBackground} from 'react-native';
 import Profile from './linkup-frontend/src/components/profile/index.js';
@@ -12,7 +13,7 @@ const meow = {
 const App = () =>{
   return (
     <View style={styles.pageContainer}>
-      <Profile user={users[4]} />
+      <Profile user={users[0]} />
     </View>
   );
 }; 
