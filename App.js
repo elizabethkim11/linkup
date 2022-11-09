@@ -40,7 +40,7 @@ const App = () =>{
     transform: [
       {
         scale: interpolate(translateX.value,
-           [screenWidth * -2, 0, screenWidth * 2], [1,0.6,1])
+           [screenWidth * -2, 0, screenWidth * 2], [1,0.5,1])
       }
     ],
   }));
@@ -54,16 +54,15 @@ const App = () =>{
       translateX.value = context.startPos + event.translationX;
     },
     onEnd: (event) => {
-      if (-150 < event.translationX && event.translationX < 150 ) {
+      if (-125 < event.translationX && event.translationX < 125 ) {
         translateX.value = withSpring(0);
         return;
       }
-      if (event.translationX >= 150) {
-        translateX.value = withSpring(screenWidth*2,{}, 
-          () => runOnJS(setCurrIndex)(currIndex+1));
+      if (event.translationX <= -125) {
+        translateX.value = withSpring(-screenWidth*2)
       }
       else {
-        translateX.value = withSpring(-screenWidth*2, {}, 
+        translateX.value = withSpring(screenWidth*2, {}, 
           () => runOnJS(setCurrIndex)(currIndex+1))
       }
     },
