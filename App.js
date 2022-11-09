@@ -1,32 +1,44 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import {Text, Image, View, StyleSheet, ImageBackground} from 'react-native';
+import {Text, Image, View, StyleSheet, ImageBackground, Pressable} from 'react-native';
 import Profile from './linkup-frontend/src/components/profile/index.js';
 import users from './assets/data/candidates'
-import Animated, { useSharedValue, useAnimatedStyle} from 'react-native-reanimated'
-import Pressable from 'react-native/Libraries/Components/Pressable/Pressable';
-
+import Animated, { useSharedValue, 
+  useAnimatedStyle, 
+  withSpring,
+  useAnimatedGestureHandler
+} from 'react-native-reanimated'
+import {PanGestureHandler} from 'react-native-gesture-handler'
 const App = () =>{
 
-  const sharedValue = useSharedValue(1);
+  const translateX = useSharedValue(0);
 
   const profileStyle = useAnimatedStyle(() => ({
     transform: [
       {
-        translateX: sharedValue.value * 500 - 250,
+        translateX: translateX.value
       },
     ],
   }));
-
+//what to do when user drags and releases items
+  const gestureHandler = useAnimatedGestureHandler({
+    onStart: (_,context) => {
+      console.log('start')
+    },
+    onActive: (event) => {
+      translateX.value = event.translationX;
+    },
+    onEnd: () => {
+      console.log('done')
+    },
+  });
   return (
     <View style={styles.pageContainer}>
-      <Animated.View style = {[styles.animatedCard, profileStyle]}>
-      <Profile user={users[0]} />
-      </Animated.View>
-      <Pressable onPress={() => (sharedValue.value = Math.random())}
-        style={{position: 'absolute', top: 250, zIndex: 100}}>
-        <Text>Meow</Text>
-        </Pressable>
+      <PanGestureHandler onGestureEvent={gestureHandler}>
+        <Animated.View style = {[styles.animatedCard, profileStyle]}>
+          <Profile user={users[0]} />
+        </Animated.View>
+      </PanGestureHandler>
     </View>
   );
 }; 
