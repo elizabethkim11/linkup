@@ -9,10 +9,14 @@ import Animated, { useSharedValue,
   useAnimatedGestureHandler,
   interpolate,
   withSpring,
-  runOnJS
+  runOnJS,
 } from 'react-native-reanimated'
 import {PanGestureHandler} from 'react-native-gesture-handler'
 import useWindowDimensions from 'react-native/Libraries/Utilities/useWindowDimensions';
+import NativeAsyncSQLiteDBStorage from 'react-native/Libraries/Storage/NativeAsyncSQLiteDBStorage';
+import Like from './assets/data/images/LIKE.png'
+import Nope from './assets/data/images/nope.png'
+
 const App = () =>{ 
   const [currIndex, setCurrIndex] = useState(0);
   const [nextIndex, setNextIndex] = useState(currIndex + 1)
@@ -45,6 +49,14 @@ const App = () =>{
     ],
   }));
 
+  const hireStyle = useAnimatedStyle(() => ({
+    opacity: interpolate(translateX.value, [0, screenWidth / 1.5], [0,1]),
+  }));
+
+  const rejectStyle = useAnimatedStyle(() => ({
+    opacity: interpolate(translateX.value, [0, -screenWidth / 1.5], [0,1]),
+  }));
+
 //what to do when user drags and releases items
   const gestureHandler = useAnimatedGestureHandler({
     onStart: (_, context) => {
@@ -59,10 +71,11 @@ const App = () =>{
         return;
       }
       if (event.translationX <= -125) {
-        translateX.value = withSpring(-screenWidth*2)
+        translateX.value = withSpring(-screenWidth*2, {}, 
+          () => runOnJS(setCurrIndex)(currIndex+1))
       }
       else {
-        translateX.value = withSpring(screenWidth*1.5, {}, 
+        translateX.value = withSpring(screenWidth*2, {}, 
           () => runOnJS(setCurrIndex)(currIndex+1))
       }
     },
@@ -74,18 +87,26 @@ const App = () =>{
   }, [currIndex, translateX]); 
 
 
-  return (
+  return ( 
     <View style={styles.pageContainer}>
-      <View style={styles.nextProfContainer}>
-        <Animated.View style = {[styles.animatedCard, nextProfStyle]}>
-          <Profile user={nextProfile} />
-        </Animated.View>
-      </View>
+      {nextProfile && (
+        <View style={styles.nextProfContainer}>
+          <Animated.View style = {[styles.animatedCard, nextProfStyle]}>
+            <Profile user={nextProfile} />
+          </Animated.View>
+        </View>
+      )}
+      {currProfile && (
       <PanGestureHandler onGestureEvent={gestureHandler}>
         <Animated.View style = {[styles.animatedCard, profileStyle]}>
-          <Profile user={currProfile} />
+          <Animated.Image source={Like} style={[styles.like, {left: 10}, hireStyle]}
+          resizeMode = 'contain'/> 
+          <Animated.Image source={Nope} style={[styles.like, {right: 10}, rejectStyle]}
+          resizeMode = 'contain'/> 
+         <Profile user={currProfile} />
         </Animated.View>
       </PanGestureHandler>
+      )}
     </View>
   );
 }; 
@@ -97,8 +118,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   animatedCard: {
-    width: '100%',
-    flex: 1,
+    width: '90%',
+    height: '70%',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -107,6 +128,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
 
+  },
+  like: {
+    width: 150,
+    height: 150,
+    position: 'absolute',
+    top: 10,
+    zIndex:1,
   }
 });
 
