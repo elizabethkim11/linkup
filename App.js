@@ -50,11 +50,11 @@ const App = () =>{
   }));
 
   const hireStyle = useAnimatedStyle(() => ({
-    opacity: interpolate(translateX.value, [0, screenWidth / 2], [0,1]),
+    opacity: interpolate(translateX.value, [0, screenWidth / 1.5], [0,1]),
   }));
 
   const rejectStyle = useAnimatedStyle(() => ({
-    opacity: interpolate(translateX.value, [0, -screenWidth / 2], [0,1]),
+    opacity: interpolate(translateX.value, [0, -screenWidth / 1.5], [0,1]),
   }));
 
 //what to do when user drags and releases items
