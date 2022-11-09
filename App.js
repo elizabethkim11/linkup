@@ -62,7 +62,7 @@ const App = () =>{
         translateX.value = withSpring(-screenWidth*2)
       }
       else {
-        translateX.value = withSpring(screenWidth*2, {}, 
+        translateX.value = withSpring(screenWidth*1.5, {}, 
           () => runOnJS(setCurrIndex)(currIndex+1))
       }
     },
