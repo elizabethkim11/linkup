@@ -44,7 +44,7 @@ const App = () =>{
     transform: [
       {
         scale: interpolate(translateX.value,
-           [screenWidth * -2, 0, screenWidth * 2], [1,0.5,1])
+           [screenWidth * -2, 0, screenWidth * 2], [1,0.4,1])
       }
     ],
   }));
