@@ -9,7 +9,7 @@ import Animated, { useSharedValue,
   useAnimatedGestureHandler,
   interpolate,
   withSpring,
-  runOnJS
+  runOnJS,
 } from 'react-native-reanimated'
 import {PanGestureHandler} from 'react-native-gesture-handler'
 import useWindowDimensions from 'react-native/Libraries/Utilities/useWindowDimensions';
@@ -47,6 +47,14 @@ const App = () =>{
            [screenWidth * -2, 0, screenWidth * 2], [1,0.5,1])
       }
     ],
+  }));
+
+  const hireStyle = useAnimatedStyle(() => ({
+    opacity: interpolate(translateX.value, [0, screenWidth / 2], [0,1]),
+  }));
+
+  const rejectStyle = useAnimatedStyle(() => ({
+    opacity: interpolate(translateX.value, [0, -screenWidth / 2], [0,1]),
   }));
 
 //what to do when user drags and releases items
@@ -91,8 +99,10 @@ const App = () =>{
       {currProfile && (
       <PanGestureHandler onGestureEvent={gestureHandler}>
         <Animated.View style = {[styles.animatedCard, profileStyle]}>
-          <Image source={Like} style={styles.like}/> 
-          <Image source={Nope} style={styles.like}/> 
+          <Animated.Image source={Like} style={[styles.like, {left: 10}, hireStyle]}
+          resizeMode = 'contain'/> 
+          <Animated.Image source={Nope} style={[styles.like, {right: 10}, rejectStyle]}
+          resizeMode = 'contain'/> 
          <Profile user={currProfile} />
         </Animated.View>
       </PanGestureHandler>
