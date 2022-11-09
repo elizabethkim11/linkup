@@ -58,11 +58,12 @@ const App = () =>{
         translateX.value = withSpring(0);
         return;
       }
-      if (event.translationX <= -150) {
-        translateX.value = withSpring(-screenWidth*2)
+      if (event.translationX >= 150) {
+        translateX.value = withSpring(screenWidth*2,{}, 
+          () => runOnJS(setCurrIndex)(currIndex+1));
       }
       else {
-        translateX.value = withSpring(screenWidth*2, {}, 
+        translateX.value = withSpring(-screenWidth*2, {}, 
           () => runOnJS(setCurrIndex)(currIndex+1))
       }
     },
