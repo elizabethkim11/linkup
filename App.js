@@ -16,6 +16,7 @@ import useWindowDimensions from 'react-native/Libraries/Utilities/useWindowDimen
 import NativeAsyncSQLiteDBStorage from 'react-native/Libraries/Storage/NativeAsyncSQLiteDBStorage';
 import Like from './assets/data/images/LIKE.png'
 import Nope from './assets/data/images/nope.png'
+// import Home from './linkup-frontend/src/screens/Home.js'
 
 const App = () =>{ 
   const [currIndex, setCurrIndex] = useState(0);
