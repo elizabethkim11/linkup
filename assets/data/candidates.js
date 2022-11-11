@@ -3,35 +3,35 @@ export default [
       candidateID: '1',
       name: 'Elizabeth Kim',
       headshot:
-        'https://static.boredpanda.com/blog/wp-content/uploads/2019/07/1-5d2cd2a0ac058__880.jpg',
+        'https://media-exp1.licdn.com/dms/image/D5603AQGChx14p66b9Q/profile-displayphoto-shrink_400_400/0/1668126608019?e=1673481600&v=beta&t=_JtJ3Ub_2lcXBsKbdZgr1Vn1JnQ1F-ienOOlZcpatUU',
       blurb: '',
     },
     {
       candidateID: '2',
       name: 'Justin Sun',
       headshot:
-        'https://static.boredpanda.com/blog/wp-content/uploads/2019/07/1-5d2cd2a0ac058__880.jpg',
+        'https://media-exp1.licdn.com/dms/image/C5603AQHV4B6uD-gQiA/profile-displayphoto-shrink_800_800/0/1662439871912?e=1673481600&v=beta&t=K52hJxvr3maSb_WmD3LEB4Zoq5fAqCDZ3Kp0eeJamHs',
       blurb: '',
     },
     {
       candidateID: '3',
       name: 'Mithil Chakraborty',
       headshot:
-        'https://static.boredpanda.com/blog/wp-content/uploads/2019/07/1-5d2cd2a0ac058__880.jpg',
+        'https://media-exp1.licdn.com/dms/image/C5603AQEVLcN-jJUnCQ/profile-displayphoto-shrink_800_800/0/1645645682231?e=1673481600&v=beta&t=Y9z1HDiPrKKjlGXzI4YHrfoKjbg7NppCnsrGuJMt9Ts',
       blurb: '',
     },
     {
       candidateID: '4',
       name: 'Ivan Sit',
       headshot:
-        'https://static.boredpanda.com/blog/wp-content/uploads/2019/07/1-5d2cd2a0ac058__880.jpg',
+        'https://media-exp1.licdn.com/dms/image/C5603AQE3zF28fIpzGQ/profile-displayphoto-shrink_800_800/0/1654468565991?e=1673481600&v=beta&t=T71kMY57uN0_r3LITSpJymqPS_aqfoJvSeUK-_qrwbE',
       blurb: '',
     },
     {
       candidateID: '5',
       name: 'Chen Tzen',
       headshot:
-        'https://static.boredpanda.com/blog/wp-content/uploads/2019/07/1-5d2cd2a0ac058__880.jpg',
+        'https://media-exp1.licdn.com/dms/image/C4E03AQHpV4GYuyxQRQ/profile-displayphoto-shrink_800_800/0/1637965242730?e=1673481600&v=beta&t=1D16AQVEorZCOuFsYCpIJHyjHzbPqaGdDBwGV7MTmdI',
       blurb: '',
     },
 ];
