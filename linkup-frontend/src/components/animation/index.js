@@ -81,7 +81,10 @@ const Animation = (props) =>{
           () => runOnJS(setCurrIndex)(currIndex+1))
       }
 
-      const onSwipe = event.velocityX > 0 ? onSwipeLeft : onSwipeRight;
+      console.log("veloctiy is " + translateX.value);
+      const onSwipe = translateX.value > 0 ? onSwipeRight : onSwipeLeft;
+      console.log("onswipe " + onSwipe)
+
       onSwipe && runOnJS(onSwipe)(currProfile); // NEED TO FIX THIS BUG :(
     },
   });
