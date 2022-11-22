@@ -7,7 +7,7 @@ const Notifs = () => {
         <SafeAreaView style={styles.root}>
         <View style={styles.container}>
           <Text style={{fontWeight: 'bold', fontSize: 24, color: '#F63A6E'}}>
-            New Job Opportunities
+            Potential Job Opportunities
           </Text>
           <View style={styles.companies}>
             {companies.map(company => (
