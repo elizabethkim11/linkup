@@ -42,8 +42,8 @@ type EagerUser = {
   readonly image?: string | null;
   readonly bio?: string | null;
   readonly resume?: string | null;
-  readonly Field?: string | null;
-  readonly untitledfield?: string | null;
+  readonly school?: string | null;
+  readonly year?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -54,8 +54,8 @@ type LazyUser = {
   readonly image?: string | null;
   readonly bio?: string | null;
   readonly resume?: string | null;
-  readonly Field?: string | null;
-  readonly untitledfield?: string | null;
+  readonly school?: string | null;
+  readonly year?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }

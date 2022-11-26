@@ -132,15 +132,15 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
-                "Field": {
-                    "name": "Field",
+                "school": {
+                    "name": "school",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "untitledfield": {
-                    "name": "untitledfield",
+                "year": {
+                    "name": "year",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
@@ -191,6 +191,6 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "codegenVersion": "3.3.1",
-    "version": "48a20cf8284a11b494df4fa6db177a13"
+    "codegenVersion": "3.3.2",
+    "version": "5d0be91969c39f828a3c988e48fb8471"
 };
