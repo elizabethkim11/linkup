@@ -80,10 +80,7 @@ const Animation = (props) =>{
         translateX.value = withSpring(screenWidth*2, {}, 
           () => runOnJS(setCurrIndex)(currIndex+1))
       }
-
-      console.log("veloctiy is " + translateX.value);
       const onSwipe = translateX.value > 0 ? onSwipeRight : onSwipeLeft;
-      console.log("onswipe " + onSwipe)
 
       onSwipe && runOnJS(onSwipe)(currProfile); // NEED TO FIX THIS BUG :(
     },
