@@ -14,10 +14,10 @@ const App = () => {
     <SafeAreaView style={styles.root}>
       <View style={styles.pageContainer}> 
         <View style={styles.topNavigation}>
-          <Pressable>
+          {/* <Pressable>
             <FontAwesome name="user" size={30} color={color} />
           </Pressable>
-          <FontAwesome name="user" size={30} color={color} />
+          <FontAwesome name="user" size={30} color={color} /> */}
           {/* <Icon name="ios-chatbubbles" size={30} color={color} /> */}
         </View>
         <Home/>
