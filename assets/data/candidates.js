@@ -17,7 +17,7 @@ export default [
       candidateID: '3',
       name: 'Mithil Chakraborty',
       headshot:
-        'https://media-exp1.licdn.com/dms/image/C5603AQEVLcN-jJUnCQ/profile-displayphoto-shrink_800_800/0/1645645682231?e=1673481600&v=beta&t=Y9z1HDiPrKKjlGXzI4YHrfoKjbg7NppCnsrGuJMt9Ts',
+        'https://media-exp1.licdn.com/dms/image/D5603AQG00Hyk_xV1gA/profile-displayphoto-shrink_400_400/0/1668673226672?e=1674691200&v=beta&t=c05ju0JtSTS0NcXx8AHAP6LtxUTcrelOWr6mFcc6rAw',
       blurb: '',
     },
     {
