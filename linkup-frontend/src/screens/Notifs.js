@@ -33,6 +33,8 @@ const styles = StyleSheet.create({
     companies: {
       flexDirection: 'row',
       flexWrap: 'wrap',
+      alignItems: 'center',
+      justifyContent: 'center'
     },
     company: {
       width: 100,
@@ -41,7 +43,7 @@ const styles = StyleSheet.create({
       borderRadius: 100,
   
       borderWidth: 3.2,
-      padding: 3,
+      padding: 7,
       borderColor: '#F63A6E',
     },
     logo: {
