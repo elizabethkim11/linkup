@@ -8,7 +8,7 @@ const App = () => {
  
   return ( 
     <View style={styles.pageContainer}> 
-      <Home />
+      <Notifs />
     </View>
   );
 }; 

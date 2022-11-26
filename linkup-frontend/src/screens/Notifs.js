@@ -6,8 +6,8 @@ const Notifs = () => {
     return (
         <SafeAreaView style={styles.root}>
         <View style={styles.container}>
-          <Text style={{fontWeight: 'bold', fontSize: 24, color: '#F63A6E'}}>
-            New Job Opportunities
+          <Text style={{fontWeight: 'bold', fontSize: 30, color: '#F63A6E'}}>
+            New Job Opportunities{"\n"}
           </Text>
           <View style={styles.companies}>
             {companies.map(company => (
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
       padding: 10,
     },
     container: {
-      padding: 10,
+      padding: 20,
     },
     companies: {
       flexDirection: 'row',
@@ -37,10 +37,10 @@ const styles = StyleSheet.create({
     company: {
       width: 100,
       height: 100,
-      margin: 10,
-      borderRadius: 50,
+      margin: 5,
+      borderRadius: 100,
   
-      borderWidth: 2,
+      borderWidth: 3.2,
       padding: 3,
       borderColor: '#F63A6E',
     },
