@@ -4,7 +4,7 @@ export default [
       name: 'Elizabeth Kim',
       headshot:
         'https://media-exp1.licdn.com/dms/image/D5603AQGChx14p66b9Q/profile-displayphoto-shrink_400_400/0/1668126608019?e=1673481600&v=beta&t=_JtJ3Ub_2lcXBsKbdZgr1Vn1JnQ1F-ienOOlZcpatUU',
-      blurb: '',
+      blurb: 'CS+Ling Squad',
     },
     {
       candidateID: '2',
