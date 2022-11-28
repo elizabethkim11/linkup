@@ -6,6 +6,8 @@ import Notifs from 'linkup/linkup-frontend/src/screens/Notifs.js';
 import Profile from 'linkup/linkup-frontend/src/screens/Profile.js';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Fontisto from 'react-native-vector-icons/Fontisto';
+import Signup from './components/Signup';
+import Recruiter from './components/Recruiter';
 // import MaterialCommunityIcons from 'react-native-vector-icons/MateralCommunityIcons';
 
 import Amplify from 'aws-amplify';
