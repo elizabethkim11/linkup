@@ -44,6 +44,7 @@ type EagerUser = {
   readonly resume?: string | null;
   readonly school?: string | null;
   readonly year?: string | null;
+  readonly sub?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -56,6 +57,7 @@ type LazyUser = {
   readonly resume?: string | null;
   readonly school?: string | null;
   readonly year?: string | null;
+  readonly sub?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }

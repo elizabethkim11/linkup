@@ -1,5 +1,5 @@
 import React from 'react'
-import {Text, ImageBackground, View, StyleSheet} from 'react-native'
+import {Text, ImageBackground, View, StyleSheet, Pressable} from 'react-native'
 
 const Profile = (props) => {
     const {name, headshot, blurb} = props.user;
@@ -15,7 +15,15 @@ const Profile = (props) => {
             <Text style={styles.blurb}>{blurb}</Text>
           </View>
         </ImageBackground>
-      </View>
+        <Pressable onPress={() => Auth.signIn("username", password )}>
+          <Text> Sign In</Text>
+        </Pressable>
+
+        <Pressable onPress={() => Auth.signOut()}>
+          <Text> Sign Out </Text>
+        </Pressable>
+
+        </View>
     )
 }
 
