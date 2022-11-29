@@ -6,12 +6,12 @@ import Notifs from 'linkup/linkup-frontend/src/screens/Notifs.js';
 import Profile from 'linkup/linkup-frontend/src/screens/Profile.js';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Fontisto from 'react-native-vector-icons/Fontisto';
-import Signup from './components/Signup';
-import Recruiter from './components/Recruiter';
+import Signup from 'linkup/linkup-frontend/src/screens/Signup.js';
+//import Recruiter from 'linkup/linkup-frontend/src/screens/Recruiter.js';
 // import MaterialCommunityIcons from 'react-native-vector-icons/MateralCommunityIcons';
 
-import Amplify from 'aws-amplify';
-import config from './src/aws-exports';
+//import Amplify from 'aws-amplify';
+//import config from './src/aws-exports';
 // ignore authenticator for now!!!
 // import {withAuthenticator} from './src/aws-amplify-react-native';
 
@@ -33,7 +33,7 @@ const App = () => {
           <FontAwesome name="user" size={30} color={color} /> */}
           {/* <Icon name="ios-chatbubbles" size={30} color={color} /> */}
         {/* </View> */}
-        <Profile />
+        <Signup />
       </View>
     </SafeAreaView>
   );
