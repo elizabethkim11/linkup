@@ -43,10 +43,10 @@ const Profile = () => {
         if(user){
 
             const updatedUser = User.copyOf(user, updated => {
-                user.name = name;
-                user.blurb = blurb;
-                user.school = school;
-                user.year = year;
+                updated.name = name;
+                updated.blurb = blurb;
+                updated.school = school;
+                updated.year = year;
             });
             DataStore.save(updatedUser);
         }
@@ -69,8 +69,8 @@ const Profile = () => {
         // console.log(user);
     }
 
-    const dbUser = dbUser[0];
-    setUser(dbUser);
+    // const dbUser = dbUser[0];
+    // setUser(dbUser);
 
     return (
         <SafeAreaView style={styles.root}>
