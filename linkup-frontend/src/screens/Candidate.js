@@ -1,7 +1,7 @@
 import { Styleshare } from '@icons-pack/react-simple-icons';
 import { Auth, DataStore } from 'aws-amplify';
 import React, {isValidElement, useEffect, useState} from 'react';
-import {View, Text, StyleSheet, SafeAreaView, Pressable, TextInput,} from 'react-native';
+import {View, Text, Alert, StyleSheet, SafeAreaView, Pressable, TextInput,} from 'react-native';
 // import {Auth} from 'aws-amplify';
 
 const Profile = () => {
@@ -9,28 +9,30 @@ const Profile = () => {
     const [blurb, setBlurb] = useState('');
     const [school, setSchool] = useState('');
     const [year, setYear] = useState('');
+    const [user, setUser] = useState(null);
 
-    // useEffect(() => {
-    //     const getCurrentUser = async () => {
-    //         const user = await Auth.currentAuthenticatedUser();
-    //         const dbUsers = DataStore.query(
-    //             User,
-    //             u => u.sub === user.attributes.sub);
-    //         if (dbUsers.length < 0) {
-    //             return;
-    //         }
-    //         const dbUser = dbUsers[0];
-    //         setName(dbUsers.name);
-    //         setBlurb(dbUsers.blurb);
-    //         setSchool(dbUsers.school);
-    //         setYear(dbUsers.year);
-    //     };
-    //     getCurrentUser();
-    // }, []);
     
     const validInput = () => {
         return name && blurb && school && year;
     };
+
+    useEffect(() => {
+        const getCurrentUser = async () => {
+            const user = await Auth.currentAuthenticatedUser();
+            const dbUsers = DataStore.query(
+                User,
+                u => u.sub === user.attributes.sub);
+            if (dbUsers.length < 0) {
+                return;
+            }
+            const dbUser = dbUsers[0];
+            setName(dbUsers.name);
+            setBlurb(dbUsers.blurb);
+            setSchool(dbUsers.school);
+            setYear(dbUsers.year);
+        };
+        getCurrentUser();
+    }, []);
 
     const save = async () => {
         if (!validInput()) {
@@ -38,20 +40,35 @@ const Profile = () => {
             return;
         }
 
+        if(user){
+            user.name = name;
+            user.blurb = blurb;
+            user.school = school;
+            user.year = year;
+
+            DataStore.save(user);
+        }
+        else{
+            const newCandidate = new Candidate({
+                sub: user.attributes.sub,
+                name,
+                blurb,
+                school,
+                year,
+                image: ''
+            });
+            console.log(newCandidate);
+            DataStore.save(newCandidate);
+        }
+
+        Alert.alert("User saved successfully")
+
         // const user = await Auth.currentAuthenticatedUser();
         // console.log(user);
+    }
 
-        const newCandidate = new Candidate({
-            sub: user.attributes.sub,
-            name,
-            blurb,
-            school,
-            year,
-            image: ''
-        });
-        console.log(newCandidate);
-        DataStore.save(newCandidate);
-    };
+    const dbUser = dbUser[0];
+    setUser(dbUser);
 
     return (
         <SafeAreaView style={styles.root}>
