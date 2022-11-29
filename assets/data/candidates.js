@@ -94,7 +94,7 @@ export default [
       name: 'James Fu',
       headshot:
         'https://media-exp1.licdn.com/dms/image/C5603AQFSFlmOBFUeeQ/profile-displayphoto-shrink_800_800/0/1546758534916?e=1675296000&v=beta&t=rZDG4CdDXZPGqaiTmPIxyscATYv_bWkm2P2eFmH9EZ4',
-      blurb: '',
+      blurb: 'print("Hello world!")',
       school: 'Berkeley',
       year: '2024',
       resume: '',
@@ -104,7 +104,7 @@ export default [
       name: 'Ingrid Lee',
       headshot:
         'https://media-exp1.licdn.com/dms/image/D5603AQG41MOoNDNMpQ/profile-displayphoto-shrink_800_800/0/1669663184987?e=1675296000&v=beta&t=epYuVSTUcjojH8o85D5YTd4N4OvuAFH-a7fQ6mrsW1g',
-      blurb: '',
+      blurb: 'Elon Musk notice me!',
       school: 'Stanford',
       year: '2025',
       resume: '',
@@ -114,7 +114,7 @@ export default [
       name: 'Maxwell Gonick',
       headshot:
         'https://media-exp1.licdn.com/dms/image/D5603AQFKo8fh0sYQLg/profile-displayphoto-shrink_800_800/0/1665708785115?e=1675296000&v=beta&t=_fvM8iSRUVJ-kiioa8ojGFM1JqmSi6sAHtJKcVNKEp0',
-      blurb: '',
+      blurb: 'Code is life.',
       school: 'MIT',
       year: '2025',
       resume: '',
@@ -124,7 +124,7 @@ export default [
       name: 'Paul Zhang',
       headshot:
         'https://media-exp1.licdn.com/dms/image/C5603AQF_yHlRxeXbRQ/profile-displayphoto-shrink_800_800/0/1664000824015?e=1675296000&v=beta&t=07q5qzhXRrPxn1z7r5C0Zus9atAasZi0IQaZ7rQTzU8',
-      blurb: '',
+      blurb: 'Passionate about open-source.',
       school: 'Georgetown',
       year: '2025',
       resume: '',
@@ -134,7 +134,7 @@ export default [
       name: 'Ashley Kang',
       headshot:
         'https://media-exp1.licdn.com/dms/image/C4E03AQGMRzuXok4wPA/profile-displayphoto-shrink_800_800/0/1641268458123?e=1675296000&v=beta&t=obMAT030V4GUGVpYDDDSO4Hq6JC3Y6wEhhVqgTm1Ii4',
-      blurb: '',
+      blurb: 'Interested in psychology research!',
       school: 'RISD',
       year: '2025',
       resume: '',
@@ -144,7 +144,7 @@ export default [
       name: 'Kendrake Tsui',
       headshot:
         'https://media-exp1.licdn.com/dms/image/C4E03AQG9fg6DodEB0A/profile-displayphoto-shrink_800_800/0/1570150467279?e=1675296000&v=beta&t=PsPbZzzsPoQLPc8WGbE7vRFzl0r8q6vOU-CA8TlVscA',
-      blurb: '',
+      blurb: 'I love Google.',
       school: 'Yale',
       year: '2023',
       resume: '',
