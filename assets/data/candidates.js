@@ -4,7 +4,7 @@ export default [
       name: 'Elizabeth Kim',
       headshot:
         'https://media-exp1.licdn.com/dms/image/D5603AQGChx14p66b9Q/profile-displayphoto-shrink_400_400/0/1668126608019?e=1673481600&v=beta&t=_JtJ3Ub_2lcXBsKbdZgr1Vn1JnQ1F-ienOOlZcpatUU',
-      blurb: '',
+      blurb:  'I love dogs and CS!',
       school: 'UCLA',
       year: '2025',
       resume: '',
@@ -24,7 +24,7 @@ export default [
       name: 'Mithil Chakraborty',
       headshot:
         'https://media-exp1.licdn.com/dms/image/D5603AQG00Hyk_xV1gA/profile-displayphoto-shrink_400_400/0/1668673226672?e=1674691200&v=beta&t=c05ju0JtSTS0NcXx8AHAP6LtxUTcrelOWr6mFcc6rAw',
-      blurb: '',
+      blurb: 'Looking to change the world!',
       school: 'UNC',
       year: '2025',
       resume: '',
@@ -34,7 +34,7 @@ export default [
       name: 'Ivan Sit',
       headshot:
         'https://media-exp1.licdn.com/dms/image/C5603AQE3zF28fIpzGQ/profile-displayphoto-shrink_800_800/0/1654468565991?e=1673481600&v=beta&t=T71kMY57uN0_r3LITSpJymqPS_aqfoJvSeUK-_qrwbE',
-      blurb: '',
+      blurb: 'I love art and science',
       school: 'UCLA',
       year: '2025',
       resume: '',
@@ -44,7 +44,7 @@ export default [
       name: 'Chen Tzen',
       headshot:
         'https://media-exp1.licdn.com/dms/image/C4E03AQHpV4GYuyxQRQ/profile-displayphoto-shrink_800_800/0/1637965242730?e=1673481600&v=beta&t=1D16AQVEorZCOuFsYCpIJHyjHzbPqaGdDBwGV7MTmdI',
-      blurb: '',
+      blurb: 'Please give me a job',
       school: 'UCLA',
       year: '2025',
       resume: '',
@@ -54,7 +54,7 @@ export default [
       name: 'Ved Phadke',
       headshot:
         'https://media-exp1.licdn.com/dms/image/C5603AQGBxCgns0ifVQ/profile-displayphoto-shrink_800_800/0/1648914568728?e=1675296000&v=beta&t=dM8dTSo8V-FY58-VeiMD4tptMVXR7cBNNEDvBeWRwYs',
-      blurb: '',
+      blurb: 'I love data science',
       school: 'UCSD',
       year: '2025',
       resume: '',
@@ -64,7 +64,7 @@ export default [
       name: 'Jaden Lee',
       headshot:
         'https://media-exp1.licdn.com/dms/image/C5603AQFU6Mzfo4b4vg/profile-displayphoto-shrink_800_800/0/1655743703760?e=1675296000&v=beta&t=S2HKFl_vFDTmOSGG4MJaoefADGgimohbCaRKquSIekE',
-      blurb: '',
+      blurb: 'Aspiring software developer and father',
       school: 'NYU',
       year: '2025',
       resume: '',
@@ -74,7 +74,7 @@ export default [
       name: 'Yoonji Kim',
       headshot:
         'https://media-exp1.licdn.com/dms/image/D5603AQHXVVAiV9PTNA/profile-displayphoto-shrink_800_800/0/1667372570827?e=1675296000&v=beta&t=BnLXHB3JP2NFSNhKvwvCoYpoZorSCfrNIZSxf18RxKg',
-      blurb: '',
+      blurb: 'I am a very good project manager',
       school: 'UMich',
       year: '2025',
       resume: '',
@@ -84,7 +84,7 @@ export default [
       name: 'Jayden Tan',
       headshot:
         'https://media-exp1.licdn.com/dms/image/D5603AQGT_0qgy9LnZw/profile-displayphoto-shrink_800_800/0/1666154430751?e=1675296000&v=beta&t=tKjmeJal6Q-zPS3Z6c5y7KZu5ebnWilbaPsOAaRoMPA',
-      blurb: '',
+      blurb: 'I love PAC and teeth',
       school: 'Northwestern',
       year: '2025',
       resume: '',
