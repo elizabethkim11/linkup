@@ -41,12 +41,14 @@ const Profile = () => {
         }
 
         if(user){
-            user.name = name;
-            user.blurb = blurb;
-            user.school = school;
-            user.year = year;
 
-            DataStore.save(user);
+            const updatedUser = User.copyOf(user, updated => {
+                user.name = name;
+                user.blurb = blurb;
+                user.school = school;
+                user.year = year;
+            });
+            DataStore.save(updatedUser);
         }
         else{
             const newCandidate = new Candidate({
