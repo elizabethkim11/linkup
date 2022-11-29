@@ -3,7 +3,7 @@ import React from 'react';
 import {View, StyleSheet, Text, SafeAreaView, Pressable} from 'react-native';
 import Home from 'linkup/linkup-frontend/src/screens/Home.js';
 import Notifs from 'linkup/linkup-frontend/src/screens/Notifs.js';
-import Profile from 'linkup/linkup-frontend/src/screens/Profile.js';
+import Candidate from 'linkup/linkup-frontend/src/screens/Candidate.js';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import Signup from 'linkup/linkup-frontend/src/screens/Signup.js';
