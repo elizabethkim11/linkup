@@ -21,21 +21,29 @@ import Recruiter from 'linkup/linkup-frontend/src/screens/Recruiter.js';
 const App = () => { 
   // const [activeScreen, setActiveScreen] = useState('HOME');
 
-  const color = "b5b5b5"
-  const pressedColor = "#F76C6B"
   return ( 
-    <SafeAreaView style={styles.root}>
-      <View style={styles.pageContainer}> 
-        {/* <View style={styles.topNavigation}> */}
-          {/* <Pressable>
-            <FontAwesome name="user" size={30} color={color} />
-          </Pressable>
-          <FontAwesome name="user" size={30} color={color} /> */}
-          {/* <Icon name="ios-chatbubbles" size={30} color={color} /> */}
-        {/* </View> */}
-        <Signup />
-      </View>
-    </SafeAreaView>
+    <NavigationContainer>
+
+      <Stack.Navigator
+        screenOptions={{ gestureENabled: false }}
+        initialRouteName="Signup"
+      >
+        <Stack.Screen
+          name="Recruiter"
+          component={Recruiter}
+          // num={num} 
+          // setNum={setNum}
+        />
+        <Stack.Screen
+          // options={{ gestureEnabled: false }}
+          name="Candidate"
+          component={Candidate}
+        />
+        <Stack.Screen name="Signup" component={Signup} />
+
+
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }; 
 

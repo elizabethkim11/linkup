@@ -4,7 +4,7 @@ import React, {isValidElement, useEffect, useState} from 'react';
 import {View, Text, StyleSheet, SafeAreaView, Pressable, TextInput,} from 'react-native';
 // import {Auth} from 'aws-amplify';
 
-const Recruiter = () => {
+const Recruiter = ({navigation}) => {
     const [name, setName] = useState('');
     const [company, setCompany] = useState('');
     // useEffect(() => {

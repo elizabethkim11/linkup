@@ -4,7 +4,7 @@ import React, {isValidElement, useEffect, useState} from 'react';
 import {View, Text, Alert, StyleSheet, SafeAreaView, Pressable, TextInput,} from 'react-native';
 // import {Auth} from 'aws-amplify';
 
-const Candidate = () => {
+const Candidate = ({navigation}) => {
     const [name, setName] = useState('');
     const [blurb, setBlurb] = useState('');
     const [school, setSchool] = useState('');
@@ -25,7 +25,7 @@ const Candidate = () => {
             if (dbUsers.length < 0) {
                 return;
             }
-            const dbUser = dbUsers[0];
+            // const dbUser = dbUsers[0];
             setName(dbUsers.name);
             setBlurb(dbUsers.blurb);
             setSchool(dbUsers.school);

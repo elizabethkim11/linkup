@@ -1,6 +1,7 @@
 import { Styleshare } from '@icons-pack/react-simple-icons';
 import { Auth, DataStore } from 'aws-amplify';
 import React, {isValidElement, useEffect, useState} from 'react';
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import {View, Text, StyleSheet, SafeAreaView, Pressable, TextInput,} from 'react-native';
 // import {Auth} from 'aws-amplify';
@@ -8,8 +9,17 @@ import Recruiter from 'linkup/linkup-frontend/src/screens/Recruiter.js';
 import Candidate from 'linkup/linkup-frontend/src/screens/Candidate.js';
 
 
-const Signup = () => {
+const Signup = ({navigation}) => {
     const [activeScreen, setActiveScreen] = useState('');
+
+    const handleRecruiter = () => {
+        navigation.navigate("Recruiter");
+      };
+    
+      const handleCandidate = () => {
+        navigation.navigate("Admin");
+      }
+
     // const [name, setName] = useState('');
     // const [blurb, setBlurb] = useState('');
     // const [email, setEmail] = useState('');
@@ -56,21 +66,23 @@ const Signup = () => {
     // };
 
     return (
+        <NavigationContainer>
         <SafeAreaView style={styles.root}>
             <View style={styles.container}>
                 {/* <TextInput style={styles.input} placeholder="Name" value={name} onChangeText={setName}/>
                 <TextInput style={styles.input} placeholder="Email" value={email} onChangeText={setEmail}/>
                 <TextInput style={styles.input} placeholder="What you are looking for" multiline numberOfLines={5} value={blurb} onChangeText={setBlurb}/> */}
-                <Pressable onPress={() => setActiveScreen('Recruit')} style={styles.button1}>
+                <Pressable onPress={handleRecruiter} style={styles.button1}>
                     <Text>Recruiter</Text>
                 </Pressable>
-                <Pressable onPress={() => setActiveScreen('Cand')} style={styles.button2}>
+                <Pressable onPress={handleCandidate} style={styles.button2}>
                     <Text>Candidate</Text>
                 </Pressable>
                 {activeScreen === 'Recruit' && <Recruiter />}
                 {activeScreen === 'Cand' && <Candidate />}
             </View>
         </SafeAreaView>
+        </NavigationContainer>
     );
 };
 
