@@ -1,4 +1,4 @@
-import { Styleshare } from '@icons-pack/react-simple-icons';
+import { Styleshare, Whitesource } from '@icons-pack/react-simple-icons';
 import { Auth, DataStore } from 'aws-amplify';
 import React, {isValidElement, useEffect, useState} from 'react';
 import {View, Text, StyleSheet, SafeAreaView, Pressable, TextInput,} from 'react-native';
@@ -6,26 +6,32 @@ import Home from 'linkup/linkup-frontend/src/screens/Home.js';
 
 
 const Recruiter = ({navigation}) => {
-    const [name, setName] = useState('');
+    const [activeScreen, setActiveScreen] = useState('');
     const [company, setCompany] = useState('');
-    useEffect(() => {
-        const getCurrentUser = async () => {
-            const user = await Auth.currentAuthenticatedUser();
-            const dbUsers = DataStore.query(
-                Recruiter,
-                u => u.sub === user.attributes.sub);
-            if (dbUsers.length < 0) {
-                return;
-            }
-            const dbUser = dbUsers[0];
-            setName(dbUsers.name);
-            setCompany(dbUsers.company);
-        };
-        getCurrentUser();
-    }, []);
-
+    const [logo, setCompanyLogo] = useState('');
+    // useEffect(() => {
+    //     const getCurrentUser = async () => {
+    //         const user = await Auth.currentAuthenticatedUser();
+    //         const dbUsers = DataStore.query(
+    //             User,
+    //             u => u.sub === user.attributes.sub);
+    //         if (dbUsers.length < 0) {
+    //             return;
+    //         }
+    //         const dbUser = dbUsers[0];
+    //         setName(dbUsers.name);
+    //         setBlurb(dbUsers.blurb);
+    //         setSchool(dbUsers.school);
+    //         setYear(dbUsers.year);
+    //     };
+    //     getCurrentUser();
+    // }, []);
+    // if (activeScreen == 'Swipe' &&) {
+    //     console.warn('Invalid input');
+    //     return;
+    // }
     const validInput = () => {
-        return name && company;
+        return company;
     };
 
     const handleSwipe = () => {
@@ -68,6 +74,13 @@ const Recruiter = ({navigation}) => {
         //     }
         // }
 
+        const newCandidate = new Recruiter({
+            sub: user.attributes.sub,
+            company,
+            logo: ''
+        });
+        console.log(newCandidate);
+        DataStore.save(newCandidate);
     };
 
     return (
@@ -75,27 +88,27 @@ const Recruiter = ({navigation}) => {
         <SafeAreaView style={styles.root}>
 
             <View style={styles.container}>
-                <TextInput style={styles.input} placeholder="Name" value={name} onChangeText={setName}/>
                 <TextInput style={styles.input} placeholder="Company" value={company} onChangeText={setCompany}/>
+                <TextInput style={styles.input} placeholder="Company Logo Image Address" value={logo} onChangeText={setCompanyLogo}/>
                 <Pressable onPress={save} style={styles.save_button}>
-                    <Text>Save changes</Text>
+                    <Text style={styles.savetext}>Save changes</Text>
                 </Pressable>
             </View>
 
             <View style={styles.pageContainer}>
             <View>
                 <Pressable onPress={handleSwipe} style={styles.nav_button1}>
-                    <Text>Swipe</Text>
+                    <Text style={{fontWeight: 'bold'}}>Swipe</Text>
                 </Pressable>
             </View>
             <View>
                 <Pressable onPress={handleInfo} style={styles.nav_button2}>
-                    <Text>My Profile</Text>
+                    <Text style={{fontWeight: 'bold', color: 'white'}}>My Profile</Text>
                 </Pressable>
             </View>
             <View>
                 <Pressable onPress={() => Auth.signOut()} style={styles.signout_button}>
-                    <Text>Sign Out</Text>
+                    <Text style={{color: 'white', fontWeight: 'bold'}}>Sign Out</Text>
                 </Pressable>
             </View>
             </View>
@@ -127,17 +140,26 @@ const styles = StyleSheet.create({
         borderBottomColor: 'lightgray',
         borderBottomWidth: 1,
         fontSize: 20,
+        lineHeight: 50,
+    },
+    savetext: {
+        color: 'white',
+        fontWeight: 'bold'
     },
     save_button: {
-        backgroundColor: '#F63A6E',
-        height: 35,
+        top: 50,
+        backgroundColor: '#2F4961',
+        height: 40,
+        width: 200,
         justifyContent: 'center',
         margin: 5,
+        left: 75,
+        right: 20,
         alignItems: 'center',
         borderRadius: 20,
     },
     nav_button1: {
-        backgroundColor: '#89CFF0',
+        backgroundColor: '#b6c0e3',
         height: 35,
         width: 100,
         justifyContent: 'center',
@@ -146,7 +168,7 @@ const styles = StyleSheet.create({
         borderRadius: 20,
     },
     nav_button2: {
-        backgroundColor: '#89CFF0',
+        backgroundColor: '#6c7868',
         height: 35,
         width: 100,
         justifyContent: 'center',
@@ -156,7 +178,7 @@ const styles = StyleSheet.create({
         borderRadius: 20,
     },
     signout_button: {
-        backgroundColor: '#AA0000',
+        backgroundColor: '#661624',
         height: 35,
         width: 100,
         justifyContent: 'center',

@@ -15,7 +15,7 @@ const Notifs = ({navigation}) => {
     return (
         <SafeAreaView style={styles.root}>
         <View style={styles.container}>
-          <Text style={{fontWeight: 'bold', fontSize: 30, color: '#F63A6E'}}>
+          <Text style={{fontWeight: 'bold', fontSize: 30, color: '#2F4961'}}>
             Potential Job Opportunities{"\n"}
           </Text>
           <View style={styles.companies}>
@@ -30,12 +30,12 @@ const Notifs = ({navigation}) => {
         <View style={styles.pageContainer}>
             <View>
                 <Pressable onPress={handleNotifs} style={styles.nav_button1}>
-                    <Text>Notifications</Text>
+                    <Text style={{fontWeight: 'bold'}}>Notifications</Text>
                 </Pressable>
             </View>
             <View>
                 <Pressable onPress={handleCandidate} style={styles.nav_button2}>
-                    <Text>Candidate</Text>
+                    <Text style={{fontWeight: 'bold', color: 'white'}}>My Profile</Text>
                 </Pressable>
             </View>
             </View>
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
   
       borderWidth: 3.2,
       padding: 7,
-      borderColor: '#F63A6E',
+      borderColor: '#2F4961',
     },
     logo: {
       width: '100%',
@@ -81,16 +81,16 @@ const styles = StyleSheet.create({
       borderRadius: 50,
     },
     nav_button1: {
-      backgroundColor: '#89CFF0',
+      backgroundColor: '#b6c0e3',
       height: 35,
-      width: 100,
+      width: 120,
       justifyContent: 'center',
       margin: 10,
       alignItems: 'center',
       borderRadius: 20,
   },
   nav_button2: {
-      backgroundColor: '#89CFF0',
+      backgroundColor: '#6c7868',
       height: 35,
       width: 100,
       justifyContent: 'center',
@@ -99,6 +99,16 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       borderRadius: 20,
   },
+  signout_button: {
+    backgroundColor: '#AA0000',
+    height: 35,
+    width: 100,
+    justifyContent: 'center',
+    alignSelf: "flex-start",
+    margin: 10,
+    alignItems: 'center',
+    borderRadius: 20,
+},
   });
 
 export default Notifs;
