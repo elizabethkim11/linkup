@@ -102,6 +102,11 @@ const Candidate = ({navigation}) => {
                     <Text>My Profile</Text>
                 </Pressable>
             </View>
+            <View>
+                <Pressable onPress={() => Auth.signOut()} style={styles.signout_button}>
+                    <Text>Sign Out</Text>
+                </Pressable>
+            </View>
             </View>
         </SafeAreaView>
     );
@@ -149,6 +154,16 @@ const styles = StyleSheet.create({
     },
     nav_button2: {
         backgroundColor: '#89CFF0',
+        height: 35,
+        width: 100,
+        justifyContent: 'center',
+        alignSelf: "flex-start",
+        margin: 10,
+        alignItems: 'center',
+        borderRadius: 20,
+    },
+    signout_button: {
+        backgroundColor: '#AA0000',
         height: 35,
         width: 100,
         justifyContent: 'center',
