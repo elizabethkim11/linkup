@@ -107,8 +107,8 @@ const Recruiters = ({navigation}) => {
         <SafeAreaView style={styles.root}>
 
             <View style={styles.container}>
-                <TextInput style={styles.input} placeholder="Name" value={name} onChangeText={setName} />
-                <TextInput style={styles.input} placeholder="Company" value={company} onChangeText={setCompany}/>
+                <TextInput style={styles.input} placeholder="Company name" value={name} onChangeText={setName} />
+                <TextInput style={styles.input} placeholder="Company logo image link address" value={company} onChangeText={setCompany}/>
                 <Pressable onPress={save} style={styles.save_button}>
                     <Text style={styles.savetext}>Save changes</Text>
                 </Pressable>
