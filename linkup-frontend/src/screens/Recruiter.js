@@ -42,10 +42,12 @@ const Recruiter = ({navigation}) => {
         //     return;
         // }
 
+        const recruiter = await Auth.currentAuthenticatedUser();
+
         const newRecruiter = new Recruiter({
-            Company,
+            Company: '',
             Name: '',
-            sub: existingRecruiter.attributes.sub,
+            sub: recruiter.attributes.sub,
             Type: 'Recruiter'
         });
 
