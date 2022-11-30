@@ -7,7 +7,7 @@ export default [
       blurb:  'Web dev enthusiast 🫶',
       school: 'UCLA',
       year: '2025',
-      resume: '',
+      resume: 'https://i.ibb.co/rstX7JX/elizabethkim-Page-1.png',
     },
     {
       candidateID: '2',
@@ -17,7 +17,7 @@ export default [
       blurb: 'I love CS and cats!',
       school: 'USC',
       year: '2025',
-      resume: '',
+      resume: 'https://i.ibb.co/w7MrJWF/JUSTINSUN-Page-1.png',
     },
     {
       candidateID: '3',
@@ -27,7 +27,7 @@ export default [
       blurb: 'Changing the world through PM!',
       school: 'UNC',
       year: '2025',
-      resume: '',
+      resume: 'https://i.ibb.co/DMbsvSg/MITHILCHAKRABORTY.png',
     },
     {
       candidateID: '4',
@@ -37,7 +37,7 @@ export default [
       blurb: 'I love coding and business!',
       school: 'UCLA',
       year: '2025',
-      resume: '',
+      resume: 'https://i.ibb.co/dg4n2V5/IVANSIT.jpg',
     },
     {
       candidateID: '5',
@@ -47,7 +47,7 @@ export default [
       blurb: 'Please give me a SWE job',
       school: 'UCLA',
       year: '2025',
-      resume: '',
+      resume: 'https://i.ibb.co/fqxNBsZ/Chen-Tzen-Page-1.png',
     },
     {
       candidateID: '6',
@@ -57,7 +57,7 @@ export default [
       blurb: 'I love data science!',
       school: 'UCSD',
       year: '2025',
-      resume: '',
+      resume: 'https://i.ibb.co/hsRFbMP/Ved-Phadke-Page-1.png',
     },
     {
       candidateID: '7',
@@ -67,7 +67,7 @@ export default [
       blurb: 'Aspiring web developer and father',
       school: 'NYU',
       year: '2025',
-      resume: '',
+      resume: 'https://i.ibb.co/khD0s1J/Jaden-Lee-Page-1.png',
     },
     {
       candidateID: '8',
@@ -77,7 +77,7 @@ export default [
       blurb: 'I am a very good project manager',
       school: 'UMich',
       year: '2025',
-      resume: '',
+      resume: 'https://i.ibb.co/NTDHSjz/Yoonji-Kim-Page-1.png',
     },
     {
       candidateID: '9',
@@ -87,7 +87,7 @@ export default [
       blurb: 'Pre-dent 😁',
       school: 'Northwestern',
       year: '2025',
-      resume: '',
+      resume: 'https://i.ibb.co/FDvYg1Y/Jayden-Tan-Page-1.png',
     },
     {
       candidateID: '10',
@@ -97,7 +97,7 @@ export default [
       blurb: 'print("I love SWE!")',
       school: 'Berkeley',
       year: '2024',
-      resume: '',
+      resume: 'https://i.ibb.co/VppLypt/James-Fu-Page-1.png',
     },
     {
       candidateID: '11',
@@ -107,7 +107,7 @@ export default [
       blurb: 'Elon Musk, notice me!',
       school: 'Stanford',
       year: '2025',
-      resume: '',
+      resume: 'https://i.ibb.co/xsV96QS/Ingrid-Lee-Page-1.png',
     },
     {
       candidateID: '12',
@@ -117,7 +117,7 @@ export default [
       blurb: 'Code is life.',
       school: 'MIT',
       year: '2025',
-      resume: '',
+      resume: 'https://i.ibb.co/cyz0XVT/Maxwell-Gonick-Page-1.png',
     },
     {
       candidateID: '13',
@@ -127,7 +127,7 @@ export default [
       blurb: 'RUST LOVER',
       school: 'Georgetown',
       year: '2025',
-      resume: '',
+      resume: 'https://i.ibb.co/7CdyCy3/Paul-Zhang-Page-1.png',
     },
     {
       candidateID: '14',
@@ -137,7 +137,7 @@ export default [
       blurb: 'Interested in psychology research!',
       school: 'RISD',
       year: '2025',
-      resume: '',
+      resume: 'https://i.ibb.co/NVdH1LH/Ashley-Kang-Page-1.png',
     },
     {
       candidateID: '15',
@@ -147,6 +147,6 @@ export default [
       blurb: 'I love Google ChromeOS.',
       school: 'Yale',
       year: '2023',
-      resume: '',
+      resume: 'https://i.ibb.co/7rQpcp0/Kendrake-Tsui-Page-1.png',
     },
 ];
