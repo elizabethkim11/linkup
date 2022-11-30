@@ -10,6 +10,11 @@
       "StackName": "amplify-linkup-staging-20505",
       "StackId": "arn:aws:cloudformation:us-west-2:586958272920:stack/amplify-linkup-staging-20505/c3df7760-5f09-11ed-b1a9-06dca994d669",
       "AmplifyAppId": "d1kjmuzui03y0u"
+    },
+    "categories": {
+      "auth": {
+        "LinkUp": {}
+      }
     }
   }
 }

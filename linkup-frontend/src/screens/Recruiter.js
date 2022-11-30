@@ -87,7 +87,7 @@ const Recruiter = ({navigation}) => {
                 </Pressable>
             </View>
             </View>
-            
+
         </SafeAreaView>
     );
 };

@@ -1,0 +1,25 @@
+type Recruiter @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Company: String
+  Name: String
+}
+
+type Match @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  UserMatch: User @hasOne
+  RecruiterMatch: Recruiter @hasOne
+  User: String
+  Recruiter: String
+}
+
+type User @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String
+  image: String
+  bio: String
+  resume: String
+  school: String
+  year: String
+  Major: String
+}
+ 

@@ -2,6 +2,10 @@ import { ModelInit, MutableModel } from "@aws-amplify/datastore";
 // @ts-ignore
 import { LazyLoading, LazyLoadingDisabled, AsyncItem } from "@aws-amplify/datastore";
 
+type RecruiterMetaData = {
+  readOnlyFields: 'createdAt' | 'updatedAt';
+}
+
 type MatchMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
 }
@@ -10,24 +14,50 @@ type UserMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
 }
 
-type EagerMatch = {
+type EagerRecruiter = {
   readonly id: string;
-  readonly User1?: User | null;
-  readonly User2?: User | null;
+  readonly Company?: string | null;
+  readonly Name?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
-  readonly matchUser1Id?: string | null;
-  readonly matchUser2Id?: string | null;
+}
+
+type LazyRecruiter = {
+  readonly id: string;
+  readonly Company?: string | null;
+  readonly Name?: string | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+}
+
+export declare type Recruiter = LazyLoading extends LazyLoadingDisabled ? EagerRecruiter : LazyRecruiter
+
+export declare const Recruiter: (new (init: ModelInit<Recruiter, RecruiterMetaData>) => Recruiter) & {
+  copyOf(source: Recruiter, mutator: (draft: MutableModel<Recruiter, RecruiterMetaData>) => MutableModel<Recruiter, RecruiterMetaData> | void): Recruiter;
+}
+
+type EagerMatch = {
+  readonly id: string;
+  readonly UserMatch?: User | null;
+  readonly RecruiterMatch?: Recruiter | null;
+  readonly User?: string | null;
+  readonly Recruiter?: string | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+  readonly matchUserMatchId?: string | null;
+  readonly matchRecruiterMatchId?: string | null;
 }
 
 type LazyMatch = {
   readonly id: string;
-  readonly User1: AsyncItem<User | undefined>;
-  readonly User2: AsyncItem<User | undefined>;
+  readonly UserMatch: AsyncItem<User | undefined>;
+  readonly RecruiterMatch: AsyncItem<Recruiter | undefined>;
+  readonly User?: string | null;
+  readonly Recruiter?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
-  readonly matchUser1Id?: string | null;
-  readonly matchUser2Id?: string | null;
+  readonly matchUserMatchId?: string | null;
+  readonly matchRecruiterMatchId?: string | null;
 }
 
 export declare type Match = LazyLoading extends LazyLoadingDisabled ? EagerMatch : LazyMatch
@@ -44,7 +74,7 @@ type EagerUser = {
   readonly resume?: string | null;
   readonly school?: string | null;
   readonly year?: string | null;
-  readonly sub?: string | null;
+  readonly Major?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -57,7 +87,7 @@ type LazyUser = {
   readonly resume?: string | null;
   readonly school?: string | null;
   readonly year?: string | null;
-  readonly sub?: string | null;
+  readonly Major?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }

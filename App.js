@@ -13,13 +13,13 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 // import MaterialCommunityIcons from 'react-native-vector-icons/MateralCommunityIcons';
 
-//import Amplify from 'aws-amplify';
-//import config from './src/aws-exports';
+import Amplify from "@aws-amplify/core";
+import config from '/Users/mithilc/Documents/LinkUp Project/linkup/src/aws-exports.js';
 // ignore authenticator for now!!!
-// import {withAuthenticator} from './src/aws-amplify-react-native';
+import {withAuthenticator} from 'aws-amplify-react-native';
 
 
-// Amplify.configure(config);
+Amplify.configure(config);
 
 const App = () => { 
   const Stack = createNativeStackNavigator();
@@ -70,4 +70,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default withAuthenticator(App);

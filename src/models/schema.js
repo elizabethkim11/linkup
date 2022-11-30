@@ -1,5 +1,71 @@
 export const schema = {
     "models": {
+        "Recruiter": {
+            "name": "Recruiter",
+            "fields": {
+                "id": {
+                    "name": "id",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "Company": {
+                    "name": "Company",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "Name": {
+                    "name": "Name",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "createdAt": {
+                    "name": "createdAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                },
+                "updatedAt": {
+                    "name": "updatedAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                }
+            },
+            "syncable": true,
+            "pluralName": "Recruiters",
+            "attributes": [
+                {
+                    "type": "model",
+                    "properties": {}
+                },
+                {
+                    "type": "auth",
+                    "properties": {
+                        "rules": [
+                            {
+                                "allow": "public",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
         "Match": {
             "name": "Match",
             "fields": {
@@ -10,8 +76,8 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "User1": {
-                    "name": "User1",
+                "UserMatch": {
+                    "name": "UserMatch",
                     "isArray": false,
                     "type": {
                         "model": "User"
@@ -21,22 +87,36 @@ export const schema = {
                     "association": {
                         "connectionType": "HAS_ONE",
                         "associatedWith": "id",
-                        "targetName": "matchUser1Id"
+                        "targetName": "matchUserMatchId"
                     }
                 },
-                "User2": {
-                    "name": "User2",
+                "RecruiterMatch": {
+                    "name": "RecruiterMatch",
                     "isArray": false,
                     "type": {
-                        "model": "User"
+                        "model": "Recruiter"
                     },
                     "isRequired": false,
                     "attributes": [],
                     "association": {
                         "connectionType": "HAS_ONE",
                         "associatedWith": "id",
-                        "targetName": "matchUser2Id"
+                        "targetName": "matchRecruiterMatchId"
                     }
+                },
+                "User": {
+                    "name": "User",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "Recruiter": {
+                    "name": "Recruiter",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
                 },
                 "createdAt": {
                     "name": "createdAt",
@@ -54,15 +134,15 @@ export const schema = {
                     "attributes": [],
                     "isReadOnly": true
                 },
-                "matchUser1Id": {
-                    "name": "matchUser1Id",
+                "matchUserMatchId": {
+                    "name": "matchUserMatchId",
                     "isArray": false,
                     "type": "ID",
                     "isRequired": false,
                     "attributes": []
                 },
-                "matchUser2Id": {
-                    "name": "matchUser2Id",
+                "matchRecruiterMatchId": {
+                    "name": "matchRecruiterMatchId",
                     "isArray": false,
                     "type": "ID",
                     "isRequired": false,
@@ -146,8 +226,8 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
-                "sub": {
-                    "name": "sub",
+                "Major": {
+                    "name": "Major",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
@@ -199,5 +279,5 @@ export const schema = {
     "enums": {},
     "nonModels": {},
     "codegenVersion": "3.3.1",
-    "version": "cda027806f4a35e2921820747431e03e"
+    "version": "23eb01a7b7fdc3e9f8bd0738141ad088"
 };
