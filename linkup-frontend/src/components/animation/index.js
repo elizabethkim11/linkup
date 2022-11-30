@@ -84,7 +84,7 @@ const Animation = (props) =>{
 
       onSwipe && runOnJS(onSwipe)(currProfile); // NEED TO FIX THIS BUG :(
     },
-  });
+  }, []);
 
   useEffect(() => {
     setNextIndex(currIndex+1)

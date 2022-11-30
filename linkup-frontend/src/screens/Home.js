@@ -10,6 +10,7 @@ import {User} from '../../../src/models';
 const Home = ({navigation}) => { 
   const [activeScreen, setActiveScreen] = useState('');
   const [users, setUsers] = useState([]);
+  const [currentUser, setCurrentUser] = useState(null);
 
   useEffect(()=>{
     const fetchUser = async () => {
@@ -47,6 +48,7 @@ const handleInfo = () => {
       <Animation
         data={users}
         renderItem={({item}) => <Profile user={item} />}
+        setCurrentUser={setCurrentUser}
         onSwipeLeft={onSwipeLeft}
         onSwipeRight={onSwipeRight}
       />
