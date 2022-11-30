@@ -8,6 +8,8 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import Signup from 'linkup/linkup-frontend/src/screens/Signup.js';
 import Recruiter from 'linkup/linkup-frontend/src/screens/Recruiter.js';
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 // import MaterialCommunityIcons from 'react-native-vector-icons/MateralCommunityIcons';
 
 //import Amplify from 'aws-amplify';
@@ -19,6 +21,7 @@ import Recruiter from 'linkup/linkup-frontend/src/screens/Recruiter.js';
 // Amplify.configure(config);
 
 const App = () => { 
+  const Stack = createNativeStackNavigator();
   // const [activeScreen, setActiveScreen] = useState('HOME');
 
   return ( 
