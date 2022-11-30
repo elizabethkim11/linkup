@@ -16,6 +16,14 @@ const Candidate = ({navigation}) => {
         return name && blurb && school && year;
     };
 
+    const handleCandidate = () => {
+        navigation.navigate("Candidate");
+    };
+
+    const handleNotifs = () => {
+      navigation.navigate("Notifs");
+    };
+
     useEffect(() => {
         const getCurrentUser = async () => {
             const user = await Auth.currentAuthenticatedUser();
@@ -83,6 +91,18 @@ const Candidate = ({navigation}) => {
                     <Text>Save changes</Text>
                 </Pressable>
             </View>
+            <View style={{ flexDirection: "row" }}>
+            <View>
+                <Pressable onPress={handleNotifs} style={styles.nav_button}>
+                    <Text>Notifications</Text>
+                </Pressable>
+            </View>
+            <View>
+                <Pressable onPress={handleCandidate} style={styles.nav_button}>
+                    <Text>Candidate</Text>
+                </Pressable>
+            </View>
+            </View>
         </SafeAreaView>
     );
 };
@@ -107,6 +127,14 @@ const styles = StyleSheet.create({
         height: 35,
         justifyContent: 'center',
         margin: 30,
+        alignItems: 'center',
+        borderRadius: 20,
+    },
+    nav_button: {
+        backgroundColor: '#89CFF0',
+        height: 35,
+        justifyContent: 'center',
+        margin: 10,
         alignItems: 'center',
         borderRadius: 20,
     },

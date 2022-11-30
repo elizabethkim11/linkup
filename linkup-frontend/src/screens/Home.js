@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, SafeAreaView, Pressable, TextInput,} from 'react-native';
 import Profile from 'linkup/linkup-frontend/src/components/profile/index.js';
 import users from 'linkup/assets/data/candidates'
 import Animation from 'linkup/linkup-frontend/src/components/animation/index.js'
@@ -65,6 +65,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     width: '100%'
   },
+  nav_button: {
+    backgroundColor: '#89CFF0',
+    height: 35,
+    justifyContent: 'center',
+    margin: 10,
+    alignItems: 'center',
+    borderRadius: 20,
+},
 });
 
 export default Home;
