@@ -45,12 +45,12 @@ const handleInfo = () => {
       <View style={{ flexDirection: "row" }}>
             <View>
                 <Pressable onPress={handleSwipe} style={styles.nav_button1}>
-                    <Text>Swipe</Text>
+                    <Text style={{fontWeight: 'bold'}}>Swipe</Text>
                 </Pressable>
             </View>
             <View>
                 <Pressable onPress={handleInfo} style={styles.nav_button2}>
-                    <Text>My Profile</Text>
+                    <Text style={{fontWeight: 'bold', color: 'white'}}>My Profile</Text>
                 </Pressable>
             </View>
       </View>
@@ -66,7 +66,8 @@ const styles = StyleSheet.create({
     width: '100%'
   },
   nav_button1: {
-      backgroundColor: '#89CFF0',
+      bottom: 20,
+      backgroundColor: '#b6c0e3',
       height: 35,
       //right: -40,
       width: 100,
@@ -76,7 +77,8 @@ const styles = StyleSheet.create({
       borderRadius: 20,
   },
   nav_button2: {
-      backgroundColor: '#89CFF0',
+      bottom: 20,
+      backgroundColor: '#6c7868',
       height: 35,
       //right: -30,
       width: 100,
