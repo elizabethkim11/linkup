@@ -45,45 +45,39 @@ const Candidate = ({navigation}) => {
     // }, []);
 
     const save = async () => {
-        if (!validInput()) {
-            console.warn('Invalid input');
-            return;
-        }
+        // if (!validInput()) {
+        //     console.warn('Invalid input');
+        //     return;
+        // }
 
-        if(user){
+        // if(user){
 
-            const updatedUser = User.copyOf(user, updated => {
-                updated.name = name;
-                updated.blurb = blurb;
-                updated.school = school;
-                updated.year = year;
-                updated.headshot = headshot;
-                updated.resume = resume;
-            });
-            DataStore.save(updatedUser);
-        }
-        else{
-            const newCandidate = new Candidate({
-                sub: user.attributes.sub,
-                name,
-                blurb,
-                school,
-                year,
-                headshot: '',
-                resume: '',
-            });
-            console.log(newCandidate);
-            DataStore.save(newCandidate);
-        }
+        //     const updatedUser = User.copyOf(user, updated => {
+        //         updated.name = name;
+        //         updated.blurb = blurb;
+        //         updated.school = school;
+        //         updated.year = year;
+        //     });
+        //     DataStore.save(updatedUser);
+        // }
+        // else{
+        //     const newCandidate = new Candidate({
+        //         sub: user.attributes.sub,
+        //         name,
+        //         blurb,
+        //         school,
+        //         year,
+        //         image: ''
+        //     });
+        //     console.log(newCandidate);
+        //     DataStore.save(newCandidate);
+        // }
 
         Alert.alert("User saved successfully")
 
-        const user = await Auth.currentAuthenticatedUser();
-        console.log(user);
+        // const user = await Auth.currentAuthenticatedUser();
+        // console.log(user);
     }
-
-    // const dbUser = dbUser[0];
-    // setUser(dbUser);
 
     return (
         <SafeAreaView style={styles.root}>
