@@ -15,7 +15,14 @@ const Profile = (props) => {
             <Text style={styles.blurb}>{blurb}</Text>
           </View>
         </ImageBackground>
-    
+        {/* <Pressable onPress={() => Auth.signIn("username", password )}>
+          <Text> Sign In</Text>
+        </Pressable>
+
+        <Pressable onPress={() => Auth.signOut()}>
+          <Text> Sign Out </Text>
+        </Pressable> */}
+
         </View>
     )
 }

@@ -75,18 +75,14 @@ const Recruiter = ({navigation}) => {
                 </Pressable>
             </View>
 
-            <Pressable onPress={() => Auth.signOut()}>
-                <Text> Sign Out </Text>
-            </Pressable>
-
-            <View style={{ flexDirection: "row" }}>
+            <View style={styles.pageContainer}>
             <View>
-                <Pressable onPress={handleSwipe} style={styles.nav_button}>
+                <Pressable onPress={handleSwipe} style={styles.nav_button1}>
                     <Text>Swipe</Text>
                 </Pressable>
             </View>
             <View>
-                <Pressable onPress={handleInfo} style={styles.nav_button}>
+                <Pressable onPress={handleInfo} style={styles.nav_button2}>
                     <Text>My Profile</Text>
                 </Pressable>
             </View>
@@ -104,6 +100,15 @@ const styles = StyleSheet.create({
     },
     container: {
         padding: 10,
+        flex: 2,
+        
+    },
+    pageContainer: {
+        flex: 1,
+        flexDirection: "row",
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: '100%'
     },
     input: {
         margin: 10,
@@ -119,10 +124,21 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderRadius: 20,
     },
-    nav_button: {
+    nav_button1: {
         backgroundColor: '#89CFF0',
         height: 35,
+        width: 100,
         justifyContent: 'center',
+        margin: 10,
+        alignItems: 'center',
+        borderRadius: 20,
+    },
+    nav_button2: {
+        backgroundColor: '#89CFF0',
+        height: 35,
+        width: 100,
+        justifyContent: 'center',
+        alignSelf: "flex-start",
         margin: 10,
         alignItems: 'center',
         borderRadius: 20,
