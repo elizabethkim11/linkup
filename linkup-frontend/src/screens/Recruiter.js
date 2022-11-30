@@ -75,6 +75,10 @@ const Recruiter = ({navigation}) => {
                 </Pressable>
             </View>
 
+            <Pressable onPress={() => Auth.signOut()}>
+                <Text> Sign Out </Text>
+            </Pressable>
+
             <View style={{ flexDirection: "row" }}>
             <View>
                 <Pressable onPress={handleSwipe} style={styles.nav_button}>
@@ -87,7 +91,7 @@ const Recruiter = ({navigation}) => {
                 </Pressable>
             </View>
             </View>
-            
+
         </SafeAreaView>
     );
 };
