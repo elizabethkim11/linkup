@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
         borderBottomColor: 'lightgray',
         borderBottomWidth: 1,
         fontSize: 20,
-        lineHeight: 50,
+        // lineHeight: 50,
     },
     savetext: {
         color: 'white',
