@@ -6,32 +6,26 @@ import Home from 'linkup/linkup-frontend/src/screens/Home.js';
 
 
 const Recruiter = ({navigation}) => {
-    const [activeScreen, setActiveScreen] = useState('');
     const [name, setName] = useState('');
     const [company, setCompany] = useState('');
-    // useEffect(() => {
-    //     const getCurrentUser = async () => {
-    //         const user = await Auth.currentAuthenticatedUser();
-    //         const dbUsers = DataStore.query(
-    //             User,
-    //             u => u.sub === user.attributes.sub);
-    //         if (dbUsers.length < 0) {
-    //             return;
-    //         }
-    //         const dbUser = dbUsers[0];
-    //         setName(dbUsers.name);
-    //         setBlurb(dbUsers.blurb);
-    //         setSchool(dbUsers.school);
-    //         setYear(dbUsers.year);
-    //     };
-    //     getCurrentUser();
-    // }, []);
-    // if (activeScreen == 'Swipe' &&) {
-    //     console.warn('Invalid input');
-    //     return;
-    // }
+    useEffect(() => {
+        const getCurrentUser = async () => {
+            const user = await Auth.currentAuthenticatedUser();
+            const dbUsers = DataStore.query(
+                Recruiter,
+                u => u.sub === user.attributes.sub);
+            if (dbUsers.length < 0) {
+                return;
+            }
+            const dbUser = dbUsers[0];
+            setName(dbUsers.name);
+            setCompany(dbUsers.company);
+        };
+        getCurrentUser();
+    }, []);
+
     const validInput = () => {
-        return name && company;
+        return Name && Company;
     };
 
     const handleSwipe = () => {
@@ -48,18 +42,24 @@ const Recruiter = ({navigation}) => {
             return;
         }
 
-        // const user = await Auth.currentAuthenticatedUser();
-        // console.log(user);
+        if(existingRecruiter){
+            user.company = company
+            user.name =  name
 
-        const newCandidate = new Recruiter({
-            sub: user.attributes.sub,
-            name,
-            blurb,
-            company,
-            image: ''
+            await DataStore.save(user)
+        }
+        else{
+            const existingRecruiter = await Auth.currentAuthenticatedUser();
+            console.log(user);
+        }
+
+        const newRecruiter = new Recruiter({
+            Company,
+            Name: '',
+            Type: 'Recruiter'
         });
-        console.log(newCandidate);
-        DataStore.save(newCandidate);
+        console.log(newRecruiter);
+        DataStore.save(newRecruiter);
     };
 
     return (

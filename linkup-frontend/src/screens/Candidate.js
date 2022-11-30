@@ -77,9 +77,6 @@ const Candidate = ({navigation}) => {
         console.log(user);
     }
 
-    const dbUser = dbUser[0];
-    setUser(dbUser);
-
     return (
         <SafeAreaView style={styles.root}>
             <View style={styles.container}>
