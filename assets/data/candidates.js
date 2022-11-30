@@ -4,7 +4,7 @@ export default [
       name: 'Elizabeth Kim',
       headshot:
         'https://media-exp1.licdn.com/dms/image/D5603AQGChx14p66b9Q/profile-displayphoto-shrink_400_400/0/1668126608019?e=1673481600&v=beta&t=_JtJ3Ub_2lcXBsKbdZgr1Vn1JnQ1F-ienOOlZcpatUU',
-      blurb:  'I love dogs and CS!',
+      blurb:  'Web dev enthusiast 🫶',
       school: 'UCLA',
       year: '2025',
       resume: '',
@@ -24,7 +24,7 @@ export default [
       name: 'Mithil Chakraborty',
       headshot:
         'https://media-exp1.licdn.com/dms/image/D5603AQG00Hyk_xV1gA/profile-displayphoto-shrink_400_400/0/1668673226672?e=1674691200&v=beta&t=c05ju0JtSTS0NcXx8AHAP6LtxUTcrelOWr6mFcc6rAw',
-      blurb: 'Looking to change the world!',
+      blurb: 'Changing the world through PM!',
       school: 'UNC',
       year: '2025',
       resume: '',
@@ -34,7 +34,7 @@ export default [
       name: 'Ivan Sit',
       headshot:
         'https://media-exp1.licdn.com/dms/image/C5603AQE3zF28fIpzGQ/profile-displayphoto-shrink_800_800/0/1654468565991?e=1673481600&v=beta&t=T71kMY57uN0_r3LITSpJymqPS_aqfoJvSeUK-_qrwbE',
-      blurb: 'I love art and science',
+      blurb: 'I love coding and business!',
       school: 'UCLA',
       year: '2025',
       resume: '',
@@ -44,7 +44,7 @@ export default [
       name: 'Chen Tzen',
       headshot:
         'https://media-exp1.licdn.com/dms/image/C4E03AQHpV4GYuyxQRQ/profile-displayphoto-shrink_800_800/0/1637965242730?e=1673481600&v=beta&t=1D16AQVEorZCOuFsYCpIJHyjHzbPqaGdDBwGV7MTmdI',
-      blurb: 'Please give me a job',
+      blurb: 'Please give me a SWE job',
       school: 'UCLA',
       year: '2025',
       resume: '',
@@ -54,7 +54,7 @@ export default [
       name: 'Ved Phadke',
       headshot:
         'https://media-exp1.licdn.com/dms/image/C5603AQGBxCgns0ifVQ/profile-displayphoto-shrink_800_800/0/1648914568728?e=1675296000&v=beta&t=dM8dTSo8V-FY58-VeiMD4tptMVXR7cBNNEDvBeWRwYs',
-      blurb: 'I love data science',
+      blurb: 'I love data science!',
       school: 'UCSD',
       year: '2025',
       resume: '',
@@ -64,7 +64,7 @@ export default [
       name: 'Jaden Lee',
       headshot:
         'https://media-exp1.licdn.com/dms/image/C5603AQFU6Mzfo4b4vg/profile-displayphoto-shrink_800_800/0/1655743703760?e=1675296000&v=beta&t=S2HKFl_vFDTmOSGG4MJaoefADGgimohbCaRKquSIekE',
-      blurb: 'Aspiring software developer and father',
+      blurb: 'Aspiring web developer and father',
       school: 'NYU',
       year: '2025',
       resume: '',
@@ -84,7 +84,7 @@ export default [
       name: 'Jayden Tan',
       headshot:
         'https://media-exp1.licdn.com/dms/image/D5603AQGT_0qgy9LnZw/profile-displayphoto-shrink_800_800/0/1666154430751?e=1675296000&v=beta&t=tKjmeJal6Q-zPS3Z6c5y7KZu5ebnWilbaPsOAaRoMPA',
-      blurb: 'I love PAC and teeth',
+      blurb: 'Pre-dent 😁',
       school: 'Northwestern',
       year: '2025',
       resume: '',
@@ -94,7 +94,7 @@ export default [
       name: 'James Fu',
       headshot:
         'https://media-exp1.licdn.com/dms/image/C5603AQFSFlmOBFUeeQ/profile-displayphoto-shrink_800_800/0/1546758534916?e=1675296000&v=beta&t=rZDG4CdDXZPGqaiTmPIxyscATYv_bWkm2P2eFmH9EZ4',
-      blurb: 'print("Hello world!")',
+      blurb: 'print("I love SWE!")',
       school: 'Berkeley',
       year: '2024',
       resume: '',
@@ -104,7 +104,7 @@ export default [
       name: 'Ingrid Lee',
       headshot:
         'https://media-exp1.licdn.com/dms/image/D5603AQG41MOoNDNMpQ/profile-displayphoto-shrink_800_800/0/1669663184987?e=1675296000&v=beta&t=epYuVSTUcjojH8o85D5YTd4N4OvuAFH-a7fQ6mrsW1g',
-      blurb: 'Elon Musk notice me!',
+      blurb: 'Elon Musk, notice me!',
       school: 'Stanford',
       year: '2025',
       resume: '',
@@ -124,7 +124,7 @@ export default [
       name: 'Paul Zhang',
       headshot:
         'https://media-exp1.licdn.com/dms/image/C5603AQF_yHlRxeXbRQ/profile-displayphoto-shrink_800_800/0/1664000824015?e=1675296000&v=beta&t=07q5qzhXRrPxn1z7r5C0Zus9atAasZi0IQaZ7rQTzU8',
-      blurb: 'Passionate about open-source.',
+      blurb: 'RUST LOVER',
       school: 'Georgetown',
       year: '2025',
       resume: '',
@@ -144,7 +144,7 @@ export default [
       name: 'Kendrake Tsui',
       headshot:
         'https://media-exp1.licdn.com/dms/image/C4E03AQG9fg6DodEB0A/profile-displayphoto-shrink_800_800/0/1570150467279?e=1675296000&v=beta&t=PsPbZzzsPoQLPc8WGbE7vRFzl0r8q6vOU-CA8TlVscA',
-      blurb: 'I love Google.',
+      blurb: 'I love Google ChromeOS.',
       school: 'Yale',
       year: '2023',
       resume: '',
