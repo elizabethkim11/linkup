@@ -72,10 +72,12 @@ const Signup = ({navigation}) => {
                 <TextInput style={styles.input} placeholder="What you are looking for" multiline numberOfLines={5} value={blurb} onChangeText={setBlurb}/> */}
                 <Pressable onPress={handleRecruiter} style={styles.button1}>
                     <Text style={styles.recruitertext}>Recruiter</Text>
+                    <Text style={styles.recruitertext}>💼</Text>
                 </Pressable>
                 
                 <Pressable onPress={handleCandidate} style={styles.button2}>
                     <Text style={styles.candtext}>Candidate</Text>
+                    <Text style={styles.candtext}>📋</Text>
                 </Pressable>
                 {activeScreen === 'Recruit' && <Recruiter />}
                 {activeScreen === 'Cand' && <Candidate />}
@@ -102,10 +104,9 @@ const styles = StyleSheet.create({
         fontSize: 20,
     },
     button1: {
-        top: 150,
         backgroundColor: '#a9bcdb',
-        height: 100,
-        width: 200,
+        height: 270,
+        width: 300,
         justifyContent: 'center',
         margin: 10,
         alignItems: 'center',
@@ -114,17 +115,16 @@ const styles = StyleSheet.create({
     candtext: {
         color: 'white',
         fontWeight: 'bold',
-        fontSize: 25,
+        fontSize: 50,
     },
     recruitertext: {
         fontWeight: 'bold',
-        fontSize: 25,
+        fontSize: 50,
     },
     button2: {
-        top: 160,
         backgroundColor: '#30374f',
-        height: 100,
-        width: 200,
+        height: 270,
+        width: 300,
         justifyContent: 'center',
         margin: 10,
         alignItems: 'center',
