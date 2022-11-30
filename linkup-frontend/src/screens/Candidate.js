@@ -24,23 +24,23 @@ const Candidate = ({navigation}) => {
       navigation.navigate("Notifs");
     };
 
-    useEffect(() => {
-        const getCurrentUser = async () => {
-            const user = await Auth.currentAuthenticatedUser();
-            const dbUsers = DataStore.query(
-                User,
-                u => u.sub === user.attributes.sub);
-            if (dbUsers.length < 0) {
-                return;
-            }
-            const dbUser = dbUsers[0];
-            setName(dbUsers.name);
-            setBlurb(dbUsers.blurb);
-            setSchool(dbUsers.school);
-            setYear(dbUsers.year);
-        };
-        getCurrentUser();
-    }, []);
+    // useEffect(() => {
+    //     const getCurrentUser = async () => {
+    //         const user = await Auth.currentAuthenticatedUser();
+    //         const dbUsers = DataStore.query(
+    //             User,
+    //             u => u.sub === user.attributes.sub);
+    //         if (dbUsers.length < 0) {
+    //             return;
+    //         }
+    //         // const dbUser = dbUsers[0];
+    //         setName(dbUsers.name);
+    //         setBlurb(dbUsers.blurb);
+    //         setSchool(dbUsers.school);
+    //         setYear(dbUsers.year);
+    //     };
+    //     getCurrentUser();
+    // }, []);
 
     const save = async () => {
         if (!validInput()) {
@@ -77,8 +77,8 @@ const Candidate = ({navigation}) => {
         console.log(user);
     }
 
-    const dbUser = dbUser[0];
-    setUser(dbUser);
+    // const dbUser = dbUser[0];
+    // setUser(dbUser);
 
     return (
         <SafeAreaView style={styles.root}>
