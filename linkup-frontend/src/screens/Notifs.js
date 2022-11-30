@@ -99,6 +99,16 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       borderRadius: 20,
   },
+  signout_button: {
+    backgroundColor: '#AA0000',
+    height: 35,
+    width: 100,
+    justifyContent: 'center',
+    alignSelf: "flex-start",
+    margin: 10,
+    alignItems: 'center',
+    borderRadius: 20,
+},
   });
 
 export default Notifs;
