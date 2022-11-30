@@ -9,11 +9,13 @@ const Candidate = ({navigation}) => {
     const [blurb, setBlurb] = useState('');
     const [school, setSchool] = useState('');
     const [year, setYear] = useState('');
+    const [headshot, setHeadshot] = useState('');
+    const [resume, setResume] = useState('');
     const [user, setUser] = useState(null);
 
     
     const validInput = () => {
-        return name && blurb && school && year;
+        return name && blurb && school && year && headshot && resume;
     };
 
     const handleCandidate = () => {
@@ -55,6 +57,8 @@ const Candidate = ({navigation}) => {
                 updated.blurb = blurb;
                 updated.school = school;
                 updated.year = year;
+                updated.headshot = headshot;
+                updated.resume = resume;
             });
             DataStore.save(updatedUser);
         }
@@ -65,7 +69,8 @@ const Candidate = ({navigation}) => {
                 blurb,
                 school,
                 year,
-                image: ''
+                headshot: '',
+                resume: '',
             });
             console.log(newCandidate);
             DataStore.save(newCandidate);
@@ -87,24 +92,26 @@ const Candidate = ({navigation}) => {
                 <TextInput style={styles.input} placeholder="About you" multiline numberOfLines={5} value={blurb} onChangeText={setBlurb}/>
                 <TextInput style={styles.input} placeholder="School" value={school} onChangeText={setSchool}/>
                 <TextInput style={styles.input} placeholder="Graduation year" value={year} onChangeText={setYear}/>
+                <TextInput style={styles.input} placeholder="Headshot image link address" value={headshot} onChangeText={setHeadshot}/>
+                <TextInput style={styles.input} placeholder="Resume image link address" value={resume} onChangeText={setResume}/>
                 <Pressable onPress={save} style={styles.button}>
-                    <Text>Save changes</Text>
+                    <Text style={{fontWeight: 'bold', color: 'white'}}>Save changes</Text>
                 </Pressable>
             </View>
             <View style={styles.pageContainer}>
             <View>
                 <Pressable onPress={handleNotifs} style={styles.nav_button1}>
-                    <Text>Notifications</Text>
+                    <Text style={{fontWeight: 'bold'}}>Notifications</Text>
                 </Pressable>
             </View>
             <View>
                 <Pressable onPress={handleCandidate} style={styles.nav_button2}>
-                    <Text>My Profile</Text>
+                    <Text style={{fontWeight: 'bold', color: 'white'}}>My Profile</Text>
                 </Pressable>
             </View>
             <View>
                 <Pressable onPress={() => Auth.signOut()} style={styles.signout_button}>
-                    <Text>Sign Out</Text>
+                    <Text style={{color: 'white', fontWeight: 'bold'}}>Sign Out</Text>
                 </Pressable>
             </View>
             </View>
@@ -136,24 +143,28 @@ const styles = StyleSheet.create({
         fontSize: 20,
     },
     button: {
-        backgroundColor: '#F63A6E',
-        height: 35,
+        top: 50,
+        backgroundColor: '#2F4961',
+        height: 40,
+        width: 200,
         justifyContent: 'center',
-        margin: 30,
+        margin: 5,
+        left: 75,
+        right: 20,
         alignItems: 'center',
         borderRadius: 20,
     },
     nav_button1: {
-        backgroundColor: '#89CFF0',
+        backgroundColor: '#b6c0e3',
         height: 35,
-        width: 100,
+        width: 110,
         justifyContent: 'center',
         margin: 10,
         alignItems: 'center',
         borderRadius: 20,
     },
     nav_button2: {
-        backgroundColor: '#89CFF0',
+        backgroundColor: '#6c7868',
         height: 35,
         width: 100,
         justifyContent: 'center',
@@ -163,7 +174,7 @@ const styles = StyleSheet.create({
         borderRadius: 20,
     },
     signout_button: {
-        backgroundColor: '#AA0000',
+        backgroundColor: '#661624',
         height: 35,
         width: 100,
         justifyContent: 'center',

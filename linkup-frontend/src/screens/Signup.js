@@ -1,4 +1,4 @@
-import { Styleshare } from '@icons-pack/react-simple-icons';
+import { Styleshare, Whitesource } from '@icons-pack/react-simple-icons';
 import { Auth, DataStore } from 'aws-amplify';
 import React, {isValidElement, useEffect, useState} from 'react';
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -71,10 +71,13 @@ const Signup = ({navigation}) => {
                 <TextInput style={styles.input} placeholder="Email" value={email} onChangeText={setEmail}/>
                 <TextInput style={styles.input} placeholder="What you are looking for" multiline numberOfLines={5} value={blurb} onChangeText={setBlurb}/> */}
                 <Pressable onPress={handleRecruiter} style={styles.button1}>
-                    <Text>Recruiter</Text>
+                    <Text style={styles.recruitertext}>Recruiter</Text>
+                    <Text style={styles.recruitertext}>💼</Text>
                 </Pressable>
+                
                 <Pressable onPress={handleCandidate} style={styles.button2}>
-                    <Text>Candidate</Text>
+                    <Text style={styles.candtext}>Candidate</Text>
+                    <Text style={styles.candtext}>📋</Text>
                 </Pressable>
                 {activeScreen === 'Recruit' && <Recruiter />}
                 {activeScreen === 'Cand' && <Candidate />}
@@ -101,22 +104,31 @@ const styles = StyleSheet.create({
         fontSize: 20,
     },
     button1: {
-        backgroundColor: '#89CFF0',
-        height: 50,
-        width: 150,
+        backgroundColor: '#a9bcdb',
+        height: 270,
+        width: 300,
         justifyContent: 'center',
         margin: 10,
         alignItems: 'center',
-        borderRadius: 10,
+        borderRadius: 40,
+    },
+    candtext: {
+        color: 'white',
+        fontWeight: 'bold',
+        fontSize: 50,
+    },
+    recruitertext: {
+        fontWeight: 'bold',
+        fontSize: 50,
     },
     button2: {
-        backgroundColor: '#FF5733',
-        height: 50,
-        width: 150,
+        backgroundColor: '#30374f',
+        height: 270,
+        width: 300,
         justifyContent: 'center',
         margin: 10,
         alignItems: 'center',
-        borderRadius: 10,
+        borderRadius: 40,
     },
     nav_button: {
         backgroundColor: '#89CFF0',
