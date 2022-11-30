@@ -91,15 +91,15 @@ const Candidate = ({navigation}) => {
                     <Text>Save changes</Text>
                 </Pressable>
             </View>
-            <View style={{ flexDirection: "row" }}>
+            <View style={styles.pageContainer}>
             <View>
-                <Pressable onPress={handleNotifs} style={styles.nav_button}>
+                <Pressable onPress={handleNotifs} style={styles.nav_button1}>
                     <Text>Notifications</Text>
                 </Pressable>
             </View>
             <View>
-                <Pressable onPress={handleCandidate} style={styles.nav_button}>
-                    <Text>Candidate</Text>
+                <Pressable onPress={handleCandidate} style={styles.nav_button2}>
+                    <Text>My Profile</Text>
                 </Pressable>
             </View>
             </View>
@@ -114,7 +114,15 @@ const styles = StyleSheet.create({
         padding: 10,
     },
     container: {
+        flex: 2,
         padding: 10,
+    },
+    pageContainer: {
+        flex: 1,
+        flexDirection: "row",
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: '100%'
     },
     input: {
         margin: 10,
@@ -130,10 +138,21 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderRadius: 20,
     },
-    nav_button: {
+    nav_button1: {
         backgroundColor: '#89CFF0',
         height: 35,
+        width: 100,
         justifyContent: 'center',
+        margin: 10,
+        alignItems: 'center',
+        borderRadius: 20,
+    },
+    nav_button2: {
+        backgroundColor: '#89CFF0',
+        height: 35,
+        width: 100,
+        justifyContent: 'center',
+        alignSelf: "flex-start",
         margin: 10,
         alignItems: 'center',
         borderRadius: 20,

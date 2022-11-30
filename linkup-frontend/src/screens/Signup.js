@@ -91,6 +91,8 @@ const styles = StyleSheet.create({
     },
     container: {
         padding: 10,
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     input: {
         margin: 10,
@@ -110,8 +112,6 @@ const styles = StyleSheet.create({
     button2: {
         backgroundColor: '#FF5733',
         height: 50,
-        right: -180,
-        top: -70,
         width: 150,
         justifyContent: 'center',
         margin: 10,
