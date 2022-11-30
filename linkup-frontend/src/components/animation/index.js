@@ -13,11 +13,10 @@ import {PanGestureHandler} from 'react-native-gesture-handler'
 import useWindowDimensions from 'react-native/Libraries/Utilities/useWindowDimensions';
 import Like from 'linkup/assets/data/images/LIKE.png'
 import Nope from 'linkup/assets/data/images/nope.png'
-// import Home from './linkup-frontend/src/screens/Home.js'
+// import Home from 'linkup-frontend/src/screens/Home.js'
 
-const Animation = (props) =>{ 
-  const {data, renderItem, onSwipeLeft, onSwipeRight} = props;
-
+const Animation = (props) => { 
+  const {data, renderItem, onSwipeLeft, onSwipeRight, setCurrUser} = props;
   const [currIndex, setCurrIndex] = useState(0);
   const [nextIndex, setNextIndex] = useState(currIndex + 1)
   const currProfile = data[currIndex];
@@ -81,15 +80,18 @@ const Animation = (props) =>{
           () => runOnJS(setCurrIndex)(currIndex+1))
       }
       const onSwipe = translateX.value > 0 ? onSwipeRight : onSwipeLeft;
-
-      onSwipe && runOnJS(onSwipe)(currProfile); // NEED TO FIX THIS BUG :(
-    },
-  }, []);
+      onSwipe && runOnJS(onSwipe)();
+     },
+  },);
 
   useEffect(() => {
     setNextIndex(currIndex+1)
     translateX.value = 0;
   }, [currIndex, translateX]); 
+
+  useEffect(() => {
+    setCurrUser(currProfile)
+  }, [currProfile, setCurrUser]); 
 
 
   return ( 
@@ -102,15 +104,15 @@ const Animation = (props) =>{
         </View>
       )}
       {currProfile ? (
-      <PanGestureHandler onGestureEvent={gestureHandler}>
-        <Animated.View style = {[styles.animatedProf, profileStyle]}>
-          <Animated.Image source={Like} style={[styles.like, {left: 10}, hireStyle]}
-          resizeMode = 'contain'/> 
-          <Animated.Image source={Nope} style={[styles.like, {right: 10}, rejectStyle]}
-          resizeMode = 'contain'/> 
-          {renderItem({item: currProfile})}
-        </Animated.View>
-      </PanGestureHandler>
+        <PanGestureHandler onGestureEvent={gestureHandler}>
+          <Animated.View style = {[styles.animatedProf, profileStyle]}>
+            <Animated.Image source={Like} style={[styles.like, {left: 10}, hireStyle]}
+            resizeMode = 'contain'/> 
+            <Animated.Image source={Nope} style={[styles.like, {right: 10}, rejectStyle]}
+            resizeMode = 'contain'/> 
+            {renderItem({item: currProfile})}
+          </Animated.View>
+        </PanGestureHandler>
       ):
         (
           <View>
