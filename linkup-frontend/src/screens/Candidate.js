@@ -11,7 +11,7 @@ const Candidates = ({navigation}) => {
     const [year, setYear] = useState('');
     const [headshot, setHeadshot] = useState('');
     const [resume, setResume] = useState('');
-    const [user, setUser] = useState(null);
+    // const [user, setUser] = useState(null);
 
     
     const validInput = () => {
@@ -53,7 +53,6 @@ const Candidates = ({navigation}) => {
         const candidate = await Auth.currentAuthenticatedUser();
 
         const newCandidate = new User({
-            sub: user.attributes.sub,
             name: name,
             image: headshot,
             bio: blurb,

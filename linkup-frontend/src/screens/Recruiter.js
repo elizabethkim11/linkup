@@ -97,7 +97,6 @@ const Recruiters = ({navigation}) => {
         const newCandidate = new Recruiter({
             sub: user.attributes.sub,
             company,
-            logo: ''
         });
         console.log(newCandidate);
         DataStore.save(newCandidate);
@@ -110,7 +109,6 @@ const Recruiters = ({navigation}) => {
             <View style={styles.container}>
                 <TextInput style={styles.input} placeholder="Name" value={name} onChangeText={setName} />
                 <TextInput style={styles.input} placeholder="Company" value={company} onChangeText={setCompany}/>
-                <TextInput style={styles.input} placeholder="Company Logo Image Address" value={logo} onChangeText={setCompanyLogo}/>
                 <Pressable onPress={save} style={styles.save_button}>
                     <Text style={styles.savetext}>Save changes</Text>
                 </Pressable>
