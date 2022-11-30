@@ -3,18 +3,19 @@ import {Text, ImageBackground, View, StyleSheet, Pressable} from 'react-native'
 
 
 const Profile = (props) => {
-    const {name, headshot, blurb, school, year} = props.user;
+    const {name, image, bio, school, year} = props.user;
     return(
         <View style={styles.profile}>
         <ImageBackground
           source={{
-            uri: headshot,
+            uri: image,
           }}
           style={styles.headshot}>
         </ImageBackground>
         <View style={styles.profileInner}>
           <Text style={styles.name}>{name}</Text>
-          <Text style={styles.blurb}>{blurb}</Text>
+          {/* <Text>{console.warn(image)}</Text> */}
+          <Text style={styles.blurb}>{bio}</Text>
           <Text style={styles.blurb}>{school} {year}</Text>
         </View>
         {/* <Pressable onPress={() => Auth.signIn("username", password )}>
