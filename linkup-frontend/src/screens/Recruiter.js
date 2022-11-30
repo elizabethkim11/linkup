@@ -25,7 +25,7 @@ const Recruiter = ({navigation}) => {
     }, []);
 
     const validInput = () => {
-        return Name && Company;
+        return name && company;
     };
 
     const handleSwipe = () => {
@@ -37,29 +37,36 @@ const Recruiter = ({navigation}) => {
     };
 
     const save = async () => {
-        if (!validInput()) {
-            console.warn('Invalid input');
-            return;
-        }
+        // if (!validInput()) {
+        //     console.warn('Invalid input');
+        //     return;
+        // }
 
-        if(existingRecruiter){
-            user.company = company
-            user.name =  name
+        // const newRecruiter = new Recruiter({
+        //     Company,
+        //     Name: '',
+        //     sub: existingRecruiter.attributes.sub,
+        //     Type: 'Recruiter'
+        // });
 
-            await DataStore.save(user)
-        }
-        else{
-            const existingRecruiter = await Auth.currentAuthenticatedUser();
-            console.log(user);
-        }
-
-        const newRecruiter = new Recruiter({
-            Company,
-            Name: '',
-            Type: 'Recruiter'
-        });
+        Alert.alert("User saved successfully");
         console.log(newRecruiter);
         DataStore.save(newRecruiter);
+
+        // async function updatePost(id, newTitle) {
+        //     try{
+        //     const original = await DataStore.query(Recruiter, id);
+        //     await DataStore.save(
+        //       Post.copyOf(original, updated => {
+        //         updated.title = newTitle
+        //       })
+        //     );
+        //     }
+        //     catch{
+        //         throw error; 
+        //     }
+        // }
+
     };
 
     return (
