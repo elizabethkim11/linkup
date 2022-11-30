@@ -16,6 +16,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Amplify from "@aws-amplify/core";
 import config from './src/aws-exports.js';
 import {withAuthenticator} from 'aws-amplify-react-native';
+import Recruiters from './linkup-frontend/src/screens/Recruiter';
 
 
 Amplify.configure(config);
@@ -33,7 +34,7 @@ const App = () => {
       >
         <Stack.Screen
           name="Recruiter"
-          component={Recruiter}
+          component={Recruiters}
           // num={num} 
           // setNum={setNum}
         />

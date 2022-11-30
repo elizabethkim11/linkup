@@ -2,6 +2,9 @@ type Recruiter @model @auth(rules: [{allow: public}]) {
   id: ID!
   Company: String
   Name: String
+  Type: String
+  sub: String!
+  RecruiterMatched: Match @belongsTo
 }
 
 type Match @model @auth(rules: [{allow: public}]) {
@@ -20,6 +23,8 @@ type User @model @auth(rules: [{allow: public}]) {
   resume: String
   school: String
   year: String
-  Major: String
+  Type: String!
+  sub: String!
+  CandidateMatched: Match @belongsTo
 }
  

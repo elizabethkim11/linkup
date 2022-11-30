@@ -1,28 +1,28 @@
 import { Styleshare } from '@icons-pack/react-simple-icons';
 import { Auth, DataStore } from 'aws-amplify';
 import React, {isValidElement, useEffect, useState} from 'react';
-import {View, Text, StyleSheet, SafeAreaView, Pressable, TextInput,} from 'react-native';
+import {View, Text, StyleSheet, SafeAreaView, Pressable, TextInput, Alert,} from 'react-native';
 import Home from 'linkup/linkup-frontend/src/screens/Home.js';
+import {Recruiter} from '../../../src/models';
 
-
-const Recruiter = ({navigation}) => {
+const Recruiters = ({navigation}) => {
     const [name, setName] = useState('');
     const [company, setCompany] = useState('');
-    useEffect(() => {
-        const getCurrentUser = async () => {
-            const user = await Auth.currentAuthenticatedUser();
-            const dbUsers = DataStore.query(
-                Recruiter,
-                u => u.sub === user.attributes.sub);
-            if (dbUsers.length < 0) {
-                return;
-            }
-            const dbUser = dbUsers[0];
-            setName(dbUsers.name);
-            setCompany(dbUsers.company);
-        };
-        getCurrentUser();
-    }, []);
+    // useEffect(() => {
+    //     const getCurrentUser = async () => {
+    //         const user = await Auth.currentAuthenticatedUser();
+    //         const dbUsers = DataStore.query(
+    //             Recruiter,
+    //             u => u.sub === user.attributes.sub);
+    //         if (dbUsers.length < 0) {
+    //             return;
+    //         }
+    //         const dbUser = dbUsers[0];
+    //         setName(dbUsers.name);
+    //         setCompany(dbUsers.company);
+    //     };
+    //     getCurrentUser();
+    // }, []);
 
     const validInput = () => {
         return name && company;
@@ -45,16 +45,29 @@ const Recruiter = ({navigation}) => {
         const recruiter = await Auth.currentAuthenticatedUser();
 
         const newRecruiter = new Recruiter({
-            Company: '',
-            Name: '',
+            Company: 'company',
+            Name: 'name',
             sub: recruiter.attributes.sub,
             Type: 'Recruiter'
         });
 
         // const user = await Auth.currentAuthenticatedUser();
-        Alert.alert("User saved successfully");
+        // Alert.alert("User saved successfully");
         console.log(newRecruiter);
-        DataStore.save(newRecruiter);
+        await DataStore.save(new Recruiter({
+            Company: company,
+            Name: name,
+            sub: recruiter.attributes.sub,
+            Type: 'Recruiter'
+        }));
+        Alert.alert('hello');
+        
+
+        const test = await DataStore.query(
+            Recruiter,
+            u => u.Company.eq('apple')
+        );
+
 
         // async function updatePost(id, newTitle) {
         //     try{
@@ -77,7 +90,7 @@ const Recruiter = ({navigation}) => {
         <SafeAreaView style={styles.root}>
 
             <View style={styles.container}>
-                <TextInput style={styles.input} placeholder="Name" value={name} onChangeText={setName}/>
+                <TextInput style={styles.input} placeholder="Name" value={name} onChangeText={setName} />
                 <TextInput style={styles.input} placeholder="Company" value={company} onChangeText={setCompany}/>
                 <Pressable onPress={save} style={styles.save_button}>
                     <Text>Save changes</Text>
@@ -169,4 +182,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Recruiter;
+export default Recruiters;
