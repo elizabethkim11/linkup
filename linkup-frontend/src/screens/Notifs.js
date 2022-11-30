@@ -1,6 +1,8 @@
 import React from 'react'
 import {View, Text, Alert, StyleSheet, SafeAreaView, Pressable, TextInput, Image} from 'react-native';
-import companies from 'linkup/assets/data/companies.js'
+// import companies from 'linkup/assets/data/companies.js';
+import { DataStore } from 'aws-amplify';
+import {Recruiter} from '../../../src/models';
 
 const Notifs = ({navigation}) => {
 
