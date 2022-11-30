@@ -44,12 +44,12 @@ const handleInfo = () => {
 
       <View style={{ flexDirection: "row" }}>
             <View>
-                <Pressable onPress={handleSwipe} style={styles.nav_button}>
+                <Pressable onPress={handleSwipe} style={styles.nav_button1}>
                     <Text>Swipe</Text>
                 </Pressable>
             </View>
             <View>
-                <Pressable onPress={handleInfo} style={styles.nav_button}>
+                <Pressable onPress={handleInfo} style={styles.nav_button2}>
                     <Text>My Profile</Text>
                 </Pressable>
             </View>
@@ -65,14 +65,26 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     width: '100%'
   },
-  nav_button: {
-    backgroundColor: '#89CFF0',
-    height: 35,
-    justifyContent: 'center',
-    margin: 10,
-    alignItems: 'center',
-    borderRadius: 20,
-},
+  nav_button1: {
+      backgroundColor: '#89CFF0',
+      height: 35,
+      //right: -40,
+      width: 100,
+      justifyContent: 'center',
+      margin: 10,
+      alignItems: 'center',
+      borderRadius: 20,
+  },
+  nav_button2: {
+      backgroundColor: '#89CFF0',
+      height: 35,
+      //right: -30,
+      width: 100,
+      justifyContent: 'center',
+      margin: 10,
+      alignItems: 'center',
+      borderRadius: 20,
+  },
 });
 
 export default Home;
