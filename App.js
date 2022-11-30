@@ -14,7 +14,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 // import MaterialCommunityIcons from 'react-native-vector-icons/MateralCommunityIcons';
 
 import Amplify from "@aws-amplify/core";
-import config from '/Users/mithilc/Documents/LinkUp Project/linkup/src/aws-exports.js';
+import config from './src/aws-exports.js';
 // ignore authenticator for now!!!
 import {withAuthenticator} from 'aws-amplify-react-native';
 
