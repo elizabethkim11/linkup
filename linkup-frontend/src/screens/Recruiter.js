@@ -8,32 +8,6 @@ import {Recruiter} from '../../../src/models';
 const Recruiters = ({navigation}) => {
     const [name, setName] = useState('');
     const [company, setCompany] = useState('');
-    // useEffect(() => {
-    //     const getCurrentUser = async () => {
-    //         const user = await Auth.currentAuthenticatedUser();
-    //         const dbUsers = DataStore.query(
-    //             User,
-    //             Recruiter,
-    //             u => u.sub === user.attributes.sub);
-    //         if (dbUsers.length < 0) {
-    //             return;
-    //         }
-    //         const dbUser = dbUsers[0];
-    //         setName(dbUsers.name);
-    //         setBlurb(dbUsers.blurb);
-    //         setSchool(dbUsers.school);
-    //         setYear(dbUsers.year);
-    //     };
-    //     getCurrentUser();
-    // }, []);
-    // if (activeScreen == 'Swipe' &&) {
-    //     console.warn('Invalid input');
-    //     return;
-    // }
-    //         setCompany(dbUsers.company);
-    //     };
-    //     getCurrentUser();
-    // }, []);
 
     const validInput = () => {
         return company;
