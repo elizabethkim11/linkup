@@ -3,8 +3,11 @@ import { Auth, DataStore } from 'aws-amplify';
 import React, {isValidElement, useEffect, useState} from 'react';
 import {View, Text, StyleSheet, SafeAreaView, Pressable, TextInput,} from 'react-native';
 // import {Auth} from 'aws-amplify';
+import Home from 'linkup/linkup-frontend/src/screens/Home.js';
+
 
 const Recruiter = ({navigation}) => {
+    const [activeScreen, setActiveScreen] = useState('');
     const [name, setName] = useState('');
     const [company, setCompany] = useState('');
     // useEffect(() => {
@@ -24,7 +27,10 @@ const Recruiter = ({navigation}) => {
     //     };
     //     getCurrentUser();
     // }, []);
-    
+    // if (activeScreen == 'Swipe' &&) {
+    //     console.warn('Invalid input');
+    //     return;
+    // }
     const validInput = () => {
         return name && company;
     };
@@ -51,10 +57,19 @@ const Recruiter = ({navigation}) => {
 
     return (
         <SafeAreaView style={styles.root}>
+            <Pressable onPress={() => setActiveScreen('Swipe')} style={styles.nav_button}>
+                <Text>Swipe</Text>
+            </Pressable>
+            
+            <Pressable onPress={() => setActiveScreen('Info')} style={styles.nav_button}>
+                <Text>My Profile</Text>
+            </Pressable>
+            {activeScreen === 'Swipe' && <Home />}
+            {activeScreen === 'Info' && <Recruiter />}
             <View style={styles.container}>
                 <TextInput style={styles.input} placeholder="Name" value={name} onChangeText={setName}/>
                 <TextInput style={styles.input} placeholder="Company" value={company} onChangeText={setCompany}/>
-                <Pressable onPress={save} style={styles.button}>
+                <Pressable onPress={save} style={styles.save_button}>
                     <Text>Save changes</Text>
                 </Pressable>
             </View>
@@ -77,11 +92,19 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
         fontSize: 20,
     },
-    button: {
+    save_button: {
         backgroundColor: '#F63A6E',
         height: 35,
         justifyContent: 'center',
-        margin: 30,
+        margin: 5,
+        alignItems: 'center',
+        borderRadius: 20,
+    },
+    nav_button: {
+        backgroundColor: '#89CFF0',
+        height: 35,
+        justifyContent: 'center',
+        margin: 5,
         alignItems: 'center',
         borderRadius: 20,
     },

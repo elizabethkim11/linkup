@@ -10,6 +10,7 @@ import Signup from 'linkup/linkup-frontend/src/screens/Signup.js';
 import Recruiter from 'linkup/linkup-frontend/src/screens/Recruiter.js';
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
 // import MaterialCommunityIcons from 'react-native-vector-icons/MateralCommunityIcons';
 
 //import Amplify from 'aws-amplify';

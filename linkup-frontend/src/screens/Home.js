@@ -7,6 +7,7 @@ import Animation from 'linkup/linkup-frontend/src/components/animation/index.js'
 // import {User} from '../models';
 
 const Home = () => { 
+  const [activeScreen, setActiveScreen] = useState('');
 
   const onSwipeLeft = (user) => {
     console.warn("Rejected", user.name)
@@ -18,6 +19,14 @@ const Home = () => {
 
   return ( 
     <View style={styles.pageContainer}> 
+      {/* <Pressable onPress={() => setActiveScreen('Swipe')} style={styles.button1}>
+          <Text>Recruiter</Text>
+      </Pressable>
+      <Pressable onPress={() => setActiveScreen('Info')} style={styles.button2}>
+          <Text>Candidate</Text>
+      </Pressable>
+      {activeScreen === 'Swipe' && <Home />}
+      {activeScreen === 'Info' && <Recruiter />} */}
       <Animation
         data={users}
         renderItem={({item}) => <Profile user={item} />}
