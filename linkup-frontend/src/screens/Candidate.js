@@ -33,7 +33,7 @@ const Candidate = ({navigation}) => {
             if (dbUsers.length < 0) {
                 return;
             }
-            const dbUser = dbUsers[0];
+            // const dbUser = dbUsers[0];
             setName(dbUsers.name);
             setBlurb(dbUsers.blurb);
             setSchool(dbUsers.school);

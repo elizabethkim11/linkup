@@ -15,7 +15,6 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import Amplify from "@aws-amplify/core";
 import config from './src/aws-exports.js';
-// ignore authenticator for now!!!
 import {withAuthenticator} from 'aws-amplify-react-native';
 
 
@@ -29,7 +28,7 @@ const App = () => {
     <NavigationContainer>
 
       <Stack.Navigator
-        screenOptions={{ gestureENabled: false }}
+        screenOptions={{ gestureEnabled: false }}
         initialRouteName="Signup"
       >
         <Stack.Screen
