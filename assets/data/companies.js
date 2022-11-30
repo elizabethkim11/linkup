@@ -35,22 +35,22 @@ export default [
     logo:
       'https://www.designmantic.com/blog/wp-content/uploads/2016/07/Netflix-Revamps-Logo-1280x720.jpg',
   },
-  {
-    companyID: '7',
-    name: 'LinkedIn',
-    logo:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/LinkedIn_icon_circle.svg/2048px-LinkedIn_icon_circle.svg.png',
-  },
-  {
-    companyID: '8',
-    name: 'Tesla',
-    logo:
-      'https://1000logos.net/wp-content/uploads/2018/02/Logo-Tesla.jpg',
-  },
-  {
-    companyID: '9',
-    name: 'Twitter',
-    logo:
-      'https://www.pngkey.com/png/full/2-27646_twitter-logo-png-transparent-background-logo-twitter-png.png',
-  },
+  // {
+  //   companyID: '7',
+  //   name: 'LinkedIn',
+  //   logo:
+  //     'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/LinkedIn_icon_circle.svg/2048px-LinkedIn_icon_circle.svg.png',
+  // },
+  // {
+  //   companyID: '8',
+  //   name: 'Tesla',
+  //   logo:
+  //     'https://1000logos.net/wp-content/uploads/2018/02/Logo-Tesla.jpg',
+  // },
+  // {
+  //   companyID: '9',
+  //   name: 'Twitter',
+  //   logo:
+  //     'https://www.pngkey.com/png/full/2-27646_twitter-logo-png-transparent-background-logo-twitter-png.png',
+  // },
 ];
