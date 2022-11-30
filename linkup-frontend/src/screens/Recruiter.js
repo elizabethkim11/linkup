@@ -35,6 +35,14 @@ const Recruiter = ({navigation}) => {
         return name && company;
     };
 
+    const handleSwipe = () => {
+          navigation.navigate("Home");
+      };
+
+    const handleInfo = () => {
+        navigation.navigate("Recruiter");
+    };
+
     const save = async () => {
         if (!validInput()) {
             console.warn('Invalid input');
@@ -56,16 +64,9 @@ const Recruiter = ({navigation}) => {
     };
 
     return (
+        
         <SafeAreaView style={styles.root}>
-            <Pressable onPress={() => setActiveScreen('Swipe')} style={styles.nav_button}>
-                <Text>Swipe</Text>
-            </Pressable>
-            
-            <Pressable onPress={() => setActiveScreen('Info')} style={styles.nav_button}>
-                <Text>My Profile</Text>
-            </Pressable>
-            {activeScreen === 'Swipe' && <Home />}
-            {activeScreen === 'Info' && <Recruiter />}
+
             <View style={styles.container}>
                 <TextInput style={styles.input} placeholder="Name" value={name} onChangeText={setName}/>
                 <TextInput style={styles.input} placeholder="Company" value={company} onChangeText={setCompany}/>
@@ -73,6 +74,20 @@ const Recruiter = ({navigation}) => {
                     <Text>Save changes</Text>
                 </Pressable>
             </View>
+
+            <View style={{ flexDirection: "row" }}>
+            <View>
+                <Pressable onPress={handleSwipe} style={styles.nav_button}>
+                    <Text>Swipe</Text>
+                </Pressable>
+            </View>
+            <View>
+                <Pressable onPress={handleInfo} style={styles.nav_button}>
+                    <Text>My Profile</Text>
+                </Pressable>
+            </View>
+            </View>
+            
         </SafeAreaView>
     );
 };

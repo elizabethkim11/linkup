@@ -2,7 +2,7 @@ import React from 'react'
 import {View, Text, StyleSheet, Image, SafeAreaView} from 'react-native'
 import companies from 'linkup/assets/data/companies.js'
 
-const Notifs = () => {
+const Notifs = ({navigation}) => {
     return (
         <SafeAreaView style={styles.root}>
         <View style={styles.container}>

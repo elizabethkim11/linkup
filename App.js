@@ -7,6 +7,9 @@ import Candidate from 'linkup/linkup-frontend/src/screens/Candidate.js';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import Signup from 'linkup/linkup-frontend/src/screens/Signup.js';
+import Home from './linkup-frontend/src/screens/Home';
+import Candidate from './linkup-frontend/src/screens/Candidate';
+import Notifs from './linkup-frontend/src/screens/Notifs';
 import Recruiter from 'linkup/linkup-frontend/src/screens/Recruiter.js';
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -44,6 +47,14 @@ const App = () => {
           component={Candidate}
         />
         <Stack.Screen name="Signup" component={Signup} />
+        <Stack.Screen
+          name="Notifs"
+          component={Notifs}
+        />
+        <Stack.Screen
+          name="Home"
+          component={Home}
+        />
 
 
       </Stack.Navigator>

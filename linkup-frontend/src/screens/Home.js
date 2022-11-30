@@ -6,7 +6,7 @@ import Animation from 'linkup/linkup-frontend/src/components/animation/index.js'
 // import {DataStore} from '@aws.amplify';
 // import {User} from '../models';
 
-const Home = () => { 
+const Home = ({navigation}) => { 
   const [activeScreen, setActiveScreen] = useState('');
 
   const onSwipeLeft = (user) => {
@@ -16,6 +16,14 @@ const Home = () => {
   const onSwipeRight = (user) => {
     console.warn("Connected with", user.name)
   };
+
+  const handleSwipe = () => {
+    navigation.navigate("Home");
+};
+
+const handleInfo = () => {
+  navigation.navigate("Recruiter");
+};
 
   return ( 
     <View style={styles.pageContainer}> 
@@ -33,6 +41,19 @@ const Home = () => {
         onSwipeLeft={onSwipeLeft}
         onSwipeRight={onSwipeRight}
       />
+
+      <View style={{ flexDirection: "row" }}>
+            <View>
+                <Pressable onPress={handleSwipe} style={styles.nav_button}>
+                    <Text>Swipe</Text>
+                </Pressable>
+            </View>
+            <View>
+                <Pressable onPress={handleInfo} style={styles.nav_button}>
+                    <Text>My Profile</Text>
+                </Pressable>
+            </View>
+      </View>
     </View>
   );
 }; 
