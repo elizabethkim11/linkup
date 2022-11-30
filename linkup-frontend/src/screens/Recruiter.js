@@ -42,13 +42,14 @@ const Recruiter = ({navigation}) => {
         //     return;
         // }
 
-        // const newRecruiter = new Recruiter({
-        //     Company,
-        //     Name: '',
-        //     sub: existingRecruiter.attributes.sub,
-        //     Type: 'Recruiter'
-        // });
+        const newRecruiter = new Recruiter({
+            Company,
+            Name: '',
+            sub: existingRecruiter.attributes.sub,
+            Type: 'Recruiter'
+        });
 
+        // const user = await Auth.currentAuthenticatedUser();
         Alert.alert("User saved successfully");
         console.log(newRecruiter);
         DataStore.save(newRecruiter);
