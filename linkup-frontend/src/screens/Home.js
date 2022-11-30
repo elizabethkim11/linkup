@@ -1,13 +1,22 @@
 import React, {useState, useEffect} from 'react';
 import {View, Text, StyleSheet, SafeAreaView, Pressable, TextInput,} from 'react-native';
 import Profile from 'linkup/linkup-frontend/src/components/profile/index.js';
-import users from 'linkup/assets/data/candidates'
+// import users from 'linkup/assets/data/candidates'
 import Animation from 'linkup/linkup-frontend/src/components/animation/index.js'
-// import {DataStore} from '@aws.amplify';
-// import {User} from '../models';
+import { DataStore } from '@aws-amplify';
+import {User} from '../../../src/models';
+
 
 const Home = ({navigation}) => { 
   const [activeScreen, setActiveScreen] = useState('');
+  const [users, setUsers] = useState([]);
+
+  useEffect(()=>{
+    const fetchUser = async () => {
+      setUsers(await DataStore.query(User))
+    }
+    fetchUser();
+  }, []);
 
   const onSwipeLeft = (user) => {
     console.warn("Rejected", user.name)

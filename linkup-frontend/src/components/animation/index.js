@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler';
 import React, {useState, useEffect} from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, Text} from 'react-native';
 import Animated, { useSharedValue, 
   useAnimatedStyle, 
   useDerivedValue,
@@ -101,7 +101,7 @@ const Animation = (props) =>{
           </Animated.View>
         </View>
       )}
-      {currProfile && (
+      {currProfile ? (
       <PanGestureHandler onGestureEvent={gestureHandler}>
         <Animated.View style = {[styles.animatedProf, profileStyle]}>
           <Animated.Image source={Like} style={[styles.like, {left: 10}, hireStyle]}
@@ -111,7 +111,15 @@ const Animation = (props) =>{
           {renderItem({item: currProfile})}
         </Animated.View>
       </PanGestureHandler>
-      )}
+      ):
+        (
+          <View>
+            <Text> No Users Found</Text>
+          </View>
+
+        )
+      
+      }
     </View>
   );
 }; 
