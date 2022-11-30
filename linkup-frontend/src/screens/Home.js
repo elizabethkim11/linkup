@@ -65,6 +65,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     width: '100%'
   },
+  nav_button: {
+    backgroundColor: '#89CFF0',
+    height: 35,
+    justifyContent: 'center',
+    margin: 10,
+    alignItems: 'center',
+    borderRadius: 20,
+},
 });
 
 export default Home;

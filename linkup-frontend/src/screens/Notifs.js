@@ -3,6 +3,15 @@ import {View, Text, StyleSheet, Image, SafeAreaView} from 'react-native'
 import companies from 'linkup/assets/data/companies.js'
 
 const Notifs = ({navigation}) => {
+
+  const handleCandidate = () => {
+    navigation.navigate("Candidate");
+  };
+
+  const handleNotifs = () => {
+  navigation.navigate("Notifs");
+  };
+
     return (
         <SafeAreaView style={styles.root}>
         <View style={styles.container}>
@@ -17,6 +26,19 @@ const Notifs = ({navigation}) => {
             ))}
           </View>
         </View>
+          
+        <View style={{ flexDirection: "row" }}>
+            <View>
+                <Pressable onPress={handleNotifs} style={styles.nav_button}>
+                    <Text>Notifications</Text>
+                </Pressable>
+            </View>
+            <View>
+                <Pressable onPress={handleCandidate} style={styles.nav_button}>
+                    <Text>Candidate</Text>
+                </Pressable>
+            </View>
+            </View>
       </SafeAreaView>
     );
 };

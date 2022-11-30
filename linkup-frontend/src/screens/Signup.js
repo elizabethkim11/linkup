@@ -118,6 +118,14 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderRadius: 10,
     },
+    nav_button: {
+        backgroundColor: '#89CFF0',
+        height: 35,
+        justifyContent: 'center',
+        margin: 10,
+        alignItems: 'center',
+        borderRadius: 20,
+    },
 });
 
 export default Signup;
