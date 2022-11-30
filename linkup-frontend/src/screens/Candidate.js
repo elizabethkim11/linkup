@@ -9,11 +9,13 @@ const Candidate = ({navigation}) => {
     const [blurb, setBlurb] = useState('');
     const [school, setSchool] = useState('');
     const [year, setYear] = useState('');
+    const [headshot, setHeadshot] = useState('');
+    const [resume, setResume] = useState('');
     const [user, setUser] = useState(null);
 
     
     const validInput = () => {
-        return name && blurb && school && year;
+        return name && blurb && school && year && headshot && resume;
     };
 
     const handleCandidate = () => {
@@ -55,6 +57,8 @@ const Candidate = ({navigation}) => {
                 updated.blurb = blurb;
                 updated.school = school;
                 updated.year = year;
+                updated.headshot = headshot;
+                updated.resume = resume;
             });
             DataStore.save(updatedUser);
         }
@@ -65,7 +69,8 @@ const Candidate = ({navigation}) => {
                 blurb,
                 school,
                 year,
-                image: ''
+                headshot: '',
+                resume: '',
             });
             console.log(newCandidate);
             DataStore.save(newCandidate);
@@ -87,6 +92,8 @@ const Candidate = ({navigation}) => {
                 <TextInput style={styles.input} placeholder="About you" multiline numberOfLines={5} value={blurb} onChangeText={setBlurb}/>
                 <TextInput style={styles.input} placeholder="School" value={school} onChangeText={setSchool}/>
                 <TextInput style={styles.input} placeholder="Graduation year" value={year} onChangeText={setYear}/>
+                <TextInput style={styles.input} placeholder="Headshot image link address" value={headshot} onChangeText={setHeadshot}/>
+                <TextInput style={styles.input} placeholder="Resume image link address" value={resume} onChangeText={setResume}/>
                 <Pressable onPress={save} style={styles.button}>
                     <Text style={{fontWeight: 'bold', color: 'white'}}>Save changes</Text>
                 </Pressable>
