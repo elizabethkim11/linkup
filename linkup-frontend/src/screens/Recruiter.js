@@ -148,7 +148,7 @@ const styles = StyleSheet.create({
         borderRadius: 20,
     },
     signout_button: {
-        backgroundColor: '#8B000',
+        backgroundColor: '#AA0000',
         height: 35,
         width: 100,
         justifyContent: 'center',
