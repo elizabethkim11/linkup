@@ -71,7 +71,7 @@ const Recruiters = ({navigation}) => {
             sub: recruiter.attributes.sub,
             Type: 'Recruiter'
         }));
-        Alert.alert('User successfully created!');
+        Alert.alert('Recruiter successfully created!');
         
 
         const test = await DataStore.query(

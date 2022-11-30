@@ -17,6 +17,7 @@ import Amplify from "@aws-amplify/core";
 import config from './src/aws-exports.js';
 import {withAuthenticator} from 'aws-amplify-react-native';
 import Recruiters from './linkup-frontend/src/screens/Recruiter';
+import Candidates from './linkup-frontend/src/screens/Candidate';
 
 
 Amplify.configure(config);
@@ -41,7 +42,7 @@ const App = () => {
         <Stack.Screen
           // options={{ gestureEnabled: false }}
           name="Candidate"
-          component={Candidate}
+          component={Candidates}
         />
         <Stack.Screen name="Signup" component={Signup} />
         <Stack.Screen
