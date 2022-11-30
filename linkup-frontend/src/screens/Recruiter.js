@@ -6,7 +6,6 @@ import {View, Text, StyleSheet, SafeAreaView, Pressable, TextInput,} from 'react
 
 const Recruiter = () => {
     const [name, setName] = useState('');
-    const [blurb, setBlurb] = useState('');
     const [company, setCompany] = useState('');
     // useEffect(() => {
     //     const getCurrentUser = async () => {
@@ -27,7 +26,7 @@ const Recruiter = () => {
     // }, []);
     
     const validInput = () => {
-        return name && blurb && company;
+        return name && company;
     };
 
     const save = async () => {
@@ -39,7 +38,7 @@ const Recruiter = () => {
         // const user = await Auth.currentAuthenticatedUser();
         // console.log(user);
 
-        const newCandidate = new Candidate({
+        const newCandidate = new Recruiter({
             sub: user.attributes.sub,
             name,
             blurb,
@@ -54,7 +53,6 @@ const Recruiter = () => {
         <SafeAreaView style={styles.root}>
             <View style={styles.container}>
                 <TextInput style={styles.input} placeholder="Name" value={name} onChangeText={setName}/>
-                <TextInput style={styles.input} placeholder="What roles you are looking to employ" multiline numberOfLines={5} value={blurb} onChangeText={setBlurb}/>
                 <TextInput style={styles.input} placeholder="Company" value={company} onChangeText={setCompany}/>
                 <Pressable onPress={save} style={styles.button}>
                     <Text>Save changes</Text>
@@ -89,4 +87,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Profile;
+export default Recruiter;

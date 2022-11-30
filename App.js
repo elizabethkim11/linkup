@@ -7,7 +7,7 @@ import Candidate from 'linkup/linkup-frontend/src/screens/Candidate.js';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import Signup from 'linkup/linkup-frontend/src/screens/Signup.js';
-//import Recruiter from 'linkup/linkup-frontend/src/screens/Recruiter.js';
+import Recruiter from 'linkup/linkup-frontend/src/screens/Recruiter.js';
 // import MaterialCommunityIcons from 'react-native-vector-icons/MateralCommunityIcons';
 
 //import Amplify from 'aws-amplify';

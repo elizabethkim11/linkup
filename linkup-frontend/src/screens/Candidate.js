@@ -4,7 +4,7 @@ import React, {isValidElement, useEffect, useState} from 'react';
 import {View, Text, Alert, StyleSheet, SafeAreaView, Pressable, TextInput,} from 'react-native';
 // import {Auth} from 'aws-amplify';
 
-const Profile = () => {
+const Candidate = () => {
     const [name, setName] = useState('');
     const [blurb, setBlurb] = useState('');
     const [school, setSchool] = useState('');
@@ -112,4 +112,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Profile;
+export default Candidate;

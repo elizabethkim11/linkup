@@ -1,13 +1,18 @@
 import { Styleshare } from '@icons-pack/react-simple-icons';
 import { Auth, DataStore } from 'aws-amplify';
 import React, {isValidElement, useEffect, useState} from 'react';
+
 import {View, Text, StyleSheet, SafeAreaView, Pressable, TextInput,} from 'react-native';
 // import {Auth} from 'aws-amplify';
+import Recruiter from 'linkup/linkup-frontend/src/screens/Recruiter.js';
+import Candidate from 'linkup/linkup-frontend/src/screens/Candidate.js';
 
-const Profile = () => {
-    const [name, setName] = useState('');
-    const [blurb, setBlurb] = useState('');
-    const [email, setEmail] = useState('');
+
+const Signup = () => {
+    const [activeScreen, setActiveScreen] = useState('');
+    // const [name, setName] = useState('');
+    // const [blurb, setBlurb] = useState('');
+    // const [email, setEmail] = useState('');
 
     // useEffect(() => {
     //     const getCurrentUser = async () => {
@@ -27,41 +32,43 @@ const Profile = () => {
     //     getCurrentUser();
     // }, []);
     
-    const validInput = () => {
-        return name && blurb && email;
-    };
+    // const validInput = () => {
+    //     return name && blurb && email;
+    // };
 
-    const save = async () => {
-        if (!validInput()) {
-            console.warn('Invalid input');
-            return;
-        }
+    // const save = async () => {
+    //     if (!validInput()) {
+    //         console.warn('Invalid input');
+    //         return;
+    //     }
 
-        // const user = await Auth.currentAuthenticatedUser();
-        // console.log(user);
+    //     // const user = await Auth.currentAuthenticatedUser();
+    //     // console.log(user);
 
-        const newCandidate = new Candidate({
-            sub: user.attributes.sub,
-            name,
-            blurb,
-            email,
-        });
-        console.log(newCandidate);
-        DataStore.save(newCandidate);
-    };
+    //     const newCandidate = new Candidate({
+    //         sub: user.attributes.sub,
+    //         name,
+    //         blurb,
+    //         email,
+    //     });
+    //     console.log(newCandidate);
+    //     DataStore.save(newCandidate);
+    // };
 
     return (
         <SafeAreaView style={styles.root}>
             <View style={styles.container}>
-                <TextInput style={styles.input} placeholder="Name" value={name} onChangeText={setName}/>
+                {/* <TextInput style={styles.input} placeholder="Name" value={name} onChangeText={setName}/>
                 <TextInput style={styles.input} placeholder="Email" value={email} onChangeText={setEmail}/>
-                <TextInput style={styles.input} placeholder="What you are looking for" multiline numberOfLines={5} value={blurb} onChangeText={setBlurb}/>
-                <Pressable onPress={save} style={styles.button1}>
+                <TextInput style={styles.input} placeholder="What you are looking for" multiline numberOfLines={5} value={blurb} onChangeText={setBlurb}/> */}
+                <Pressable onPress={() => setActiveScreen('Recruit')} style={styles.button1}>
                     <Text>Recruiter</Text>
                 </Pressable>
-                <Pressable onPress={save} style={styles.button2}>
+                <Pressable onPress={() => setActiveScreen('Cand')} style={styles.button2}>
                     <Text>Candidate</Text>
                 </Pressable>
+                {activeScreen === 'Recruit' && <Recruiter />}
+                {activeScreen === 'Cand' && <Candidate />}
             </View>
         </SafeAreaView>
     );
@@ -84,7 +91,7 @@ const styles = StyleSheet.create({
     },
     button1: {
         backgroundColor: '#89CFF0',
-        height: 25,
+        height: 50,
         width: 150,
         justifyContent: 'center',
         margin: 10,
@@ -93,9 +100,9 @@ const styles = StyleSheet.create({
     },
     button2: {
         backgroundColor: '#FF5733',
-        height: 25,
+        height: 50,
         right: -180,
-        top: -45,
+        top: -70,
         width: 150,
         justifyContent: 'center',
         margin: 10,
@@ -104,4 +111,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Profile;
+export default Signup;
