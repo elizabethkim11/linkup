@@ -8,7 +8,6 @@ import {View, Text, StyleSheet, SafeAreaView, Pressable, TextInput,} from 'react
 import Recruiter from 'linkup/linkup-frontend/src/screens/Recruiter.js';
 import Candidate from 'linkup/linkup-frontend/src/screens/Candidate.js';
 
-
 const Signup = ({navigation}) => {
     const [activeScreen, setActiveScreen] = useState('');
 
@@ -17,7 +16,7 @@ const Signup = ({navigation}) => {
       };
     
       const handleCandidate = () => {
-        navigation.navigate("Admin");
+        navigation.navigate("Candidate");
       }
 
     // const [name, setName] = useState('');
@@ -66,7 +65,6 @@ const Signup = ({navigation}) => {
     // };
 
     return (
-        <NavigationContainer>
         <SafeAreaView style={styles.root}>
             <View style={styles.container}>
                 {/* <TextInput style={styles.input} placeholder="Name" value={name} onChangeText={setName}/>
@@ -82,7 +80,6 @@ const Signup = ({navigation}) => {
                 {activeScreen === 'Cand' && <Candidate />}
             </View>
         </SafeAreaView>
-        </NavigationContainer>
     );
 };
 
