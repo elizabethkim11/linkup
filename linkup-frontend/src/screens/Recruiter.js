@@ -2,9 +2,7 @@ import { Styleshare } from '@icons-pack/react-simple-icons';
 import { Auth, DataStore } from 'aws-amplify';
 import React, {isValidElement, useEffect, useState} from 'react';
 import {View, Text, StyleSheet, SafeAreaView, Pressable, TextInput,} from 'react-native';
-// import {Auth} from 'aws-amplify';
 import Home from 'linkup/linkup-frontend/src/screens/Home.js';
-import {Auth} from 'aws-amplify'
 
 
 const Recruiter = ({navigation}) => {
