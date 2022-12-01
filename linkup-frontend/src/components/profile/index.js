@@ -8,7 +8,7 @@ const handleResume = () => {
 //style={{ width: 50, height: 50, justifyContent: "left", bottom: 310, left: 10 }}
 const Profile = (props) => {
 
-    const {name, headshot, blurb, school, year, resume} = props.user;
+    const {name, image, bio, school, year} = props.user;
 
     return(
         <View style={styles.profile}>
