@@ -14,7 +14,8 @@ const Home = ({navigation}) => {
 
   useEffect(()=>{
     const fetchUser = async () => {
-      setUsers(await DataStore.query(User))
+      setUsers(await DataStore.query(User));
+      console.warn(users)
     }
     fetchUser();
   }, []);

@@ -1,10 +1,23 @@
+// import companies from 'linkup/assets/data/companies.js';
+import { DataStore } from 'aws-amplify';
+import {Recruiter} from '../../../src/models';
 import {View, Text, Alert, StyleSheet, SafeAreaView, Pressable, TextInput, Image, Switch} from 'react-native';
 import companies from 'linkup/assets/data/companies.js'
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const Notifs = ({navigation}) => {
   const [isEnabled, setIsEnabled] = useState(false);
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+  const [currCompanies, setCurrCompanies] = useState([]);
+
+  var test = [];
+  useEffect(()=>{
+    const fetchUser = async () => {
+      test = await DataStore.query(Recruiter);
+      setCurrCompanies(await DataStore.query(Recruiter))
+    }
+    fetchUser();
+  }, []);
 
   const handleCandidate = () => {
     navigation.navigate("Candidate");
@@ -32,9 +45,9 @@ const Notifs = ({navigation}) => {
             style={{bottom: 35, left: 230}}
           />
           <View style={styles.companies}>
-            {companies.map(company => (
-              <View style={styles.company} key={company.companyID}>
-                <Image source={{uri: company.logo}} style={styles.logo} />
+            {currCompanies.map(company => (
+              <View style={styles.company} key={company.Name}>
+                <Image source={{uri: company.Company}} style={styles.logo} />
               </View>
             ))}
           </View>
