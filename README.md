@@ -1,18 +1,39 @@
 # linkup
 
-There are two types of users in our mobile application: the verified recruiter and the open-to-join applicant.
+To run the app locally:
 
-The recruiter directly interacts with data that applicants have uploaded as
-aforementioned, and can then input an expected graduation year filter and location
-filter if they want to narrow their search.
+First, download Node.js using the following link:
+https://nodejs.org/en/download/
 
-Users upload their resume, professional photo, description, and basic contact
-information (year and location) to our mobile app.
 
-Professional recruiters then use our database of profiles and swipe right or left on
-resumes to either accept or reject the applicant.
+Then, run the following commands to install the required dependencies:
 
-FEATURES:
-- Swipe left and right on candidates
-- Bookmark highly qualified candidate profiles
-- Notification center that notifies candidates of recruiters that have swiped right on them
+npm add @icons-pack/react-simple-icons --save 
+npm add @react-native-async-storage/async-storage --save 
+npm add @react-native-community/masked-view --save 
+npm add @react-native-community/netinfo --save 
+npm add @react-navigation/native --save 
+npm add @react-navigation/native-stack --save 
+npm add @react-navigation/stack --save 
+npm add amazon-cognito-identity-js --save 
+npm add aws-amplify --save 
+npm add aws-amplify-react-native --save 
+npm add expo --save 
+npm add expo-cli --save 
+npm add expo-status-bar --save
+npm add pod-install --save 
+npm add react --save 
+npm add react-native --save 
+npm add react-native-gesture-handler --save 
+npm add react-native-modal --save 
+npm add react-native-reanimated --save 
+npm add react-native-safe-area-context --save 
+npm add react-native-screens --save 
+npm add react-native-vector-icons --save
+npm add run-ios --save
+npm i pod-install
+
+To build the app, run:
+
+npm start
+i
