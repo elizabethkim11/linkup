@@ -17,24 +17,24 @@ export default [
     logo:
       'https://authy.com/wp-content/uploads/new-microsoft-logo-SIZED-SQUARE-300x297.jpg',
   },
-  {
-    companyID: '4',
-    name: 'Amazon',
-    logo:
-      'https://1000logos.net/wp-content/uploads/2016/10/Amazon-logo-meaning.jpg',
-  },
-  {
-    companyID: '5',
-    name: 'Apple',
-    logo:
-      'https://www.ceo-middleeast.com/cloud/2021/07/05/apple-logo-rainbow.jpg',
-  },
-  {
-    companyID: '6',
-    name: 'Netflix',
-    logo:
-      'https://www.designmantic.com/blog/wp-content/uploads/2016/07/Netflix-Revamps-Logo-1280x720.jpg',
-  },
+  // {
+  //   companyID: '4',
+  //   name: 'Amazon',
+  //   logo:
+  //     'https://1000logos.net/wp-content/uploads/2016/10/Amazon-logo-meaning.jpg',
+  // },
+  // {
+  //   companyID: '5',
+  //   name: 'Apple',
+  //   logo:
+  //     'https://www.ceo-middleeast.com/cloud/2021/07/05/apple-logo-rainbow.jpg',
+  // },
+  // {
+  //   companyID: '6',
+  //   name: 'Netflix',
+  //   logo:
+  //     'https://www.designmantic.com/blog/wp-content/uploads/2016/07/Netflix-Revamps-Logo-1280x720.jpg',
+  // },
   // {
   //   companyID: '7',
   //   name: 'LinkedIn',
