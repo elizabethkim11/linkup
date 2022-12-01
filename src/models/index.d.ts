@@ -18,6 +18,9 @@ type EagerRecruiter = {
   readonly id: string;
   readonly Company?: string | null;
   readonly Name?: string | null;
+  readonly Type?: string | null;
+  readonly sub: string;
+  readonly RecruiterMatched?: Match | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -26,6 +29,9 @@ type LazyRecruiter = {
   readonly id: string;
   readonly Company?: string | null;
   readonly Name?: string | null;
+  readonly Type?: string | null;
+  readonly sub: string;
+  readonly RecruiterMatched: AsyncItem<Match | undefined>;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -74,7 +80,9 @@ type EagerUser = {
   readonly resume?: string | null;
   readonly school?: string | null;
   readonly year?: string | null;
-  readonly Major?: string | null;
+  readonly Type: string;
+  readonly sub: string;
+  readonly CandidateMatched?: Match | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -87,7 +95,9 @@ type LazyUser = {
   readonly resume?: string | null;
   readonly school?: string | null;
   readonly year?: string | null;
-  readonly Major?: string | null;
+  readonly Type: string;
+  readonly sub: string;
+  readonly CandidateMatched: AsyncItem<Match | undefined>;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }

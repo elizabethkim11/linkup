@@ -21,9 +21,9 @@ import Modal from "react-native-modal";
 // import Home from './linkup-frontend/src/screens/Home.js'
 
 
-const Animation = (props) =>{ 
-  const {data, renderItem, onSwipeLeft, onSwipeRight} = props;
 
+const Animation = (props) => { 
+  const {data, renderItem, onSwipeLeft, onSwipeRight, setCurrUser} = props;
   const [currIndex, setCurrIndex] = useState(0);
   const [nextIndex, setNextIndex] = useState(currIndex + 1)
   const currProfile = data[currIndex];
@@ -98,15 +98,18 @@ const Animation = (props) =>{
           () => runOnJS(setCurrIndex)(currIndex+1))
       }
       const onSwipe = translateX.value > 0 ? onSwipeRight : onSwipeLeft;
-
-      onSwipe && runOnJS(onSwipe)(currProfile); // NEED TO FIX THIS BUG :(
-    },
-  });
+      onSwipe && runOnJS(onSwipe)();
+     },
+  },);
 
   useEffect(() => {
     setNextIndex(currIndex+1)
     translateX.value = 0;
   }, [currIndex, translateX]); 
+
+  useEffect(() => {
+    setCurrUser(currProfile)
+  }, [currProfile, setCurrUser]); 
 
 
   return ( 
@@ -118,28 +121,25 @@ const Animation = (props) =>{
           </Animated.View>
         </View>
       )}
-      {currProfile && (
-      <PanGestureHandler onGestureEvent={gestureHandler}>
-        <Animated.View style = {[styles.animatedProf, profileStyle]}>
-          <Animated.Image source={Like} style={[styles.like, {left: 10}, hireStyle]}
-          resizeMode = 'contain'/> 
-          <Animated.Image source={Nope} style={[styles.like, {right: 10}, rejectStyle]}
-          resizeMode = 'contain'/> 
-          <Pressable onPress={toggleModal} style={styles.resumeButton}>
-          <Text style={{fontSize: 27}}>📝</Text>
-            <Modal isVisible={isModalVisible}>
-            <Animated.Image source={Resume} style={styles.aniResume}
-          resizeMode = 'contain'/> 
+      {currProfile ? (
+        <PanGestureHandler onGestureEvent={gestureHandler}>
+          <Animated.View style = {[styles.animatedProf, profileStyle]}>
+            <Animated.Image source={Like} style={[styles.like, {left: 10}, hireStyle]}
+            resizeMode = 'contain'/> 
+            <Animated.Image source={Nope} style={[styles.like, {right: 10}, rejectStyle]}
+            resizeMode = 'contain'/> 
+            {renderItem({item: currProfile})}
+          </Animated.View>
+        </PanGestureHandler>
+      ):
+        (
+          <View>
+            <Text>Oops, no more candidates right now!</Text>
+          </View>
 
-            <Pressable title="Close" onPress={toggleModal} style={styles.closeButton}>
-              <Text style={{fontSize:20, color:'white',}}>X</Text>
-            </Pressable>
-            </Modal>
-            </Pressable>
-          {renderItem({item: currProfile})}
-        </Animated.View>
-      </PanGestureHandler>
-      )}
+        )
+      
+      }
     </View>
   );
 }; 

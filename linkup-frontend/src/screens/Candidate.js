@@ -2,16 +2,16 @@ import { Styleshare } from '@icons-pack/react-simple-icons';
 import { Auth, DataStore } from 'aws-amplify';
 import React, {isValidElement, useEffect, useState} from 'react';
 import {View, Text, Alert, StyleSheet, SafeAreaView, Pressable, TextInput,} from 'react-native';
-// import {Auth} from 'aws-amplify';
+import {User} from '../../../src/models';
 
-const Candidate = ({navigation}) => {
+const Candidates = ({navigation}) => {
     const [name, setName] = useState('');
     const [blurb, setBlurb] = useState('');
     const [school, setSchool] = useState('');
     const [year, setYear] = useState('');
     const [headshot, setHeadshot] = useState('');
     const [resume, setResume] = useState('');
-    const [user, setUser] = useState(null);
+    // const [user, setUser] = useState(null);
 
     
     const validInput = () => {
@@ -50,40 +50,30 @@ const Candidate = ({navigation}) => {
             return;
         }
 
-        if(user){
+        const candidate = await Auth.currentAuthenticatedUser();
 
-            const updatedUser = User.copyOf(user, updated => {
-                updated.name = name;
-                updated.blurb = blurb;
-                updated.school = school;
-                updated.year = year;
-                updated.headshot = headshot;
-                updated.resume = resume;
-            });
-            DataStore.save(updatedUser);
-        }
-        else{
-            const newCandidate = new Candidate({
-                sub: user.attributes.sub,
-                name,
-                blurb,
-                school,
-                year,
-                headshot: '',
-                resume: '',
-            });
-            console.log(newCandidate);
-            DataStore.save(newCandidate);
-        }
+        const newCandidate = new User({
+            name: name,
+            image: headshot,
+            bio: blurb,
+            resume: resume,
+            school: school,
+            year: year,
+            Type: 'Candidate',
+            sub: candidate.attributes.sub
+        });
 
-        Alert.alert("User saved successfully")
+        console.log(newCandidate);
+        await DataStore.save(newCandidate);
+        Alert.alert('Candidate successfully created!');
+        
 
-        const user = await Auth.currentAuthenticatedUser();
-        console.log(user);
-    }
+        const test = await DataStore.query(
+            User,
+            u => u.Company.eq('apple')
+        );
 
-    // const dbUser = dbUser[0];
-    // setUser(dbUser);
+    };
 
     return (
         <SafeAreaView style={styles.root}>
@@ -185,4 +175,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Candidate;
+export default Candidates;

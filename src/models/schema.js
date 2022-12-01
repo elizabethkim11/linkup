@@ -24,6 +24,33 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
+                "Type": {
+                    "name": "Type",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "sub": {
+                    "name": "sub",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "RecruiterMatched": {
+                    "name": "RecruiterMatched",
+                    "isArray": false,
+                    "type": {
+                        "model": "Match"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "association": {
+                        "connectionType": "BELONGS_TO",
+                        "targetName": "recruiterRecruiterMatchedId"
+                    }
+                },
                 "createdAt": {
                     "name": "createdAt",
                     "isArray": false,
@@ -86,7 +113,7 @@ export const schema = {
                     "attributes": [],
                     "association": {
                         "connectionType": "HAS_ONE",
-                        "associatedWith": "id",
+                        "associatedWith": "CandidateMatched",
                         "targetName": "matchUserMatchId"
                     }
                 },
@@ -100,7 +127,7 @@ export const schema = {
                     "attributes": [],
                     "association": {
                         "connectionType": "HAS_ONE",
-                        "associatedWith": "id",
+                        "associatedWith": "RecruiterMatched",
                         "targetName": "matchRecruiterMatchId"
                     }
                 },
@@ -226,12 +253,32 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
-                "Major": {
-                    "name": "Major",
+                "Type": {
+                    "name": "Type",
                     "isArray": false,
                     "type": "String",
-                    "isRequired": false,
+                    "isRequired": true,
                     "attributes": []
+                },
+                "sub": {
+                    "name": "sub",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "CandidateMatched": {
+                    "name": "CandidateMatched",
+                    "isArray": false,
+                    "type": {
+                        "model": "Match"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "association": {
+                        "connectionType": "BELONGS_TO",
+                        "targetName": "userCandidateMatchedId"
+                    }
                 },
                 "createdAt": {
                     "name": "createdAt",
@@ -278,6 +325,6 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "codegenVersion": "3.3.1",
-    "version": "23eb01a7b7fdc3e9f8bd0738141ad088"
+    "codegenVersion": "3.3.2",
+    "version": "dfc456ade9e424d5362e069463416d3e"
 };

@@ -1,20 +1,36 @@
 import React, {useState, useEffect} from 'react';
 import {View, Text, StyleSheet, SafeAreaView, Pressable, TextInput,} from 'react-native';
 import Profile from 'linkup/linkup-frontend/src/components/profile/index.js';
-import users from 'linkup/assets/data/candidates'
+// import users from 'linkup/assets/data/candidates'
 import Animation from 'linkup/linkup-frontend/src/components/animation/index.js'
-// import {DataStore} from '@aws.amplify';
-// import {User} from '../models';
+import { DataStore } from 'aws-amplify';
+import {User} from '../../../src/models';
+
 
 const Home = ({navigation}) => { 
   const [activeScreen, setActiveScreen] = useState('');
+  const [users, setUsers] = useState([]);
+  const [currentUser, setCurrUser] = useState(null);
 
-  const onSwipeLeft = (user) => {
-    console.warn("Rejected", user.name)
+  useEffect(()=>{
+    const fetchUser = async () => {
+      setUsers(await DataStore.query(User))
+    }
+    fetchUser();
+  }, []);
+
+  const onSwipeLeft = () => {
+    if (!currentUser) {
+      return;
+    }
+    console.warn("Rejected", currentUser.name)
   };
 
-  const onSwipeRight = (user) => {
-    console.warn("Connected with", user.name)
+  const onSwipeRight = () => {
+    if (!currentUser) {
+      return;
+    }
+    console.warn("Connected with", currentUser.name)
   };
 
   const handleSwipe = () => {
@@ -37,6 +53,7 @@ const handleInfo = () => {
       {activeScreen === 'Info' && <Recruiter />} */}
       <Animation
         data={users}
+        setCurrUser = {setCurrUser}
         renderItem={({item}) => <Profile user={item} />}
         onSwipeLeft={onSwipeLeft}
         onSwipeRight={onSwipeRight}

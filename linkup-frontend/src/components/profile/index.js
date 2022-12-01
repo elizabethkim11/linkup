@@ -7,20 +7,22 @@ const handleResume = () => {
 };
 //style={{ width: 50, height: 50, justifyContent: "left", bottom: 310, left: 10 }}
 const Profile = (props) => {
+
     const {name, headshot, blurb, school, year, resume} = props.user;
 
     return(
         <View style={styles.profile}>
         <ImageBackground
           source={{
-            uri: headshot,
+            uri: image,
           }}
           style={styles.headshot}>
             
         </ImageBackground>
         <View style={styles.profileInner}>
           <Text style={styles.name}>{name}</Text>
-          <Text style={styles.blurb}>{blurb}</Text>
+          {/* <Text>{console.warn(image)}</Text> */}
+          <Text style={styles.blurb}>{bio}</Text>
           <Text style={styles.blurb}>{school} {year}</Text>
           {/*<Image source={{uri: resume}} style={{width:50,height:50, zIndex: 999, bottom: 550, justifyContent: 'center', alignItems: 'center', }}></Image>*/}
         </View>
