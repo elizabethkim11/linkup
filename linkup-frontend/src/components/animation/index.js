@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler';
 import React, {useState, useEffect} from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, Pressable, Text} from 'react-native';
 import Animated, { useSharedValue, 
   useAnimatedStyle, 
   useDerivedValue,
@@ -13,7 +13,13 @@ import {PanGestureHandler} from 'react-native-gesture-handler'
 import useWindowDimensions from 'react-native/Libraries/Utilities/useWindowDimensions';
 import Like from 'linkup/assets/data/images/LIKE.png'
 import Nope from 'linkup/assets/data/images/nope.png'
+import Resume from 'linkup/assets/data/images/ebeth.png'
+import Modal from "react-native-modal";
+
+
+
 // import Home from './linkup-frontend/src/screens/Home.js'
+
 
 const Animation = (props) =>{ 
   const {data, renderItem, onSwipeLeft, onSwipeRight} = props;
@@ -22,12 +28,19 @@ const Animation = (props) =>{
   const [nextIndex, setNextIndex] = useState(currIndex + 1)
   const currProfile = data[currIndex];
   const nextProfile = data[nextIndex];
-
+  const currResume = currProfile.resume;
   const {width: screenWidth} =  useWindowDimensions();
   const translateX = useSharedValue(0);
   const rotate = useDerivedValue( () => 
     interpolate(translateX.value, [0, screenWidth * 2], [0,60]) + 'deg',
   );
+
+    const [isModalVisible, setModalVisible] = useState(false);
+  
+
+    const toggleModal = () => {
+      setModalVisible(!isModalVisible);
+    };
 
   const profileStyle = useAnimatedStyle(() => ({
     transform: [
@@ -58,6 +71,10 @@ const Animation = (props) =>{
   const rejectStyle = useAnimatedStyle(() => ({
     opacity: interpolate(translateX.value, [0, -screenWidth / 2], [0,1]),
   }));
+
+  // const resumeStyle = useAnimatedStyle(() => ({
+  //   opacity: isHeadshot ? 0:1,
+  // }));
 
 //what to do when user drags and releases items
   const gestureHandler = useAnimatedGestureHandler({
@@ -108,6 +125,17 @@ const Animation = (props) =>{
           resizeMode = 'contain'/> 
           <Animated.Image source={Nope} style={[styles.like, {right: 10}, rejectStyle]}
           resizeMode = 'contain'/> 
+          <Pressable onPress={toggleModal} style={styles.resumeButton}>
+          <Text style={{fontSize: 27}}>📝</Text>
+            <Modal isVisible={isModalVisible}>
+            <Animated.Image source={Resume} style={styles.aniResume}
+          resizeMode = 'contain'/> 
+
+            <Pressable title="Close" onPress={toggleModal} style={styles.closeButton}>
+              <Text style={{fontSize:20, color:'white',}}>X</Text>
+            </Pressable>
+            </Modal>
+            </Pressable>
           {renderItem({item: currProfile})}
         </Animated.View>
       </PanGestureHandler>
@@ -123,11 +151,46 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: '100%',
   },
+  resumeButton: {
+    backgroundColor: '#b87046',
+    height: 50,
+    bottom: 370,
+    right: 250,
+    //right: -30,
+    width: 70,
+    position: 'absolute',
+    justifyContent: 'center',
+    margin: 10,
+    alignItems: 'center',
+    borderRadius: 20,
+    zIndex: 999,
+  },
+  closeButton: {
+    backgroundColor: 'red',
+    height: 30,
+    bottom: 505,
+    right: 290,
+    //right: -30,
+    width: 30,
+    position: 'absolute',
+    justifyContent: 'center',
+    margin: 10,
+    alignItems: 'center',
+    borderRadius: 20,
+    zIndex: 999,
+  },
   animatedProf: {
     width: '90%',
     height: '70%',
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  aniResume: {
+    width: '100%',
+    height: '100%',
+    position: 'absolute',
+    buttoms: 40,
+    zIndex:1,
   },
   nextProfContainer: {
     ...StyleSheet.absoluteFillObject,
@@ -139,8 +202,9 @@ const styles = StyleSheet.create({
     height: 150,
     position: 'absolute',
     top: 10,
-    zIndex:1,
+    zIndex:2,
   }
 });
+
 
 export default Animation;
