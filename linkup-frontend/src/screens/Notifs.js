@@ -1,10 +1,14 @@
 import React from 'react'
-import {View, Text, Alert, StyleSheet, SafeAreaView, Pressable, TextInput, Image} from 'react-native';
 // import companies from 'linkup/assets/data/companies.js';
 import { DataStore } from 'aws-amplify';
 import {Recruiter} from '../../../src/models';
+import {View, Text, Alert, StyleSheet, SafeAreaView, Pressable, TextInput, Image, Switch} from 'react-native';
+import companies from 'linkup/assets/data/companies.js'
+import React, { useState } from "react";
 
 const Notifs = ({navigation}) => {
+  const [isEnabled, setIsEnabled] = useState(false);
+  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
 
   const handleCandidate = () => {
     navigation.navigate("Candidate");
@@ -18,8 +22,19 @@ const Notifs = ({navigation}) => {
         <SafeAreaView style={styles.root}>
         <View style={styles.container}>
           <Text style={{fontWeight: 'bold', fontSize: 30, color: '#2F4961'}}>
-            Potential Job Opportunities{"\n"}
+            Potential Jobs
           </Text>
+          <Text style={{fontWeight: 'bold', fontSize: 20, color: '#2F4961'}}> 
+            {"\n"}Only show companies{"\n"}that have swiped right:
+          </Text>
+          <Switch
+            trackColor={{ false: "#767577", true: "#81b0ff" }}
+            thumbColor={isEnabled ? "white" : "#f4f3f4"}
+            ios_backgroundColor="#3e3e3e"
+            onValueChange={toggleSwitch}
+            value={isEnabled}
+            style={{bottom: 35, left: 230}}
+          />
           <View style={styles.companies}>
             {companies.map(company => (
               <View style={styles.company} key={company.companyID}>
@@ -65,7 +80,7 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       flexWrap: 'wrap',
       alignItems: 'center',
-      justifyContent: 'center'
+      justifyContent: 'center',
     },
     company: {
       width: 100,
