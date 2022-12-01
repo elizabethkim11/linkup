@@ -117,7 +117,7 @@ const Animation = (props) => {
         <View style={styles.nextProfContainer}>
           <Animated.View style = {[styles.animatedProf, nextProfStyle]}>
           <Pressable onPress={toggleModal} style={styles.resumeButton}>
-            <Text style={{fontSize: 27}}>📝</Text>
+            <Text style={{fontSize: 27, right: 5}}>📝</Text>
               <Modal isVisible={isModalVisible}>
               <Animated.Image source={Resume} style={styles.aniResume}
             resizeMode = 'contain'/> 
@@ -167,7 +167,7 @@ const styles = StyleSheet.create({
     bottom: 370,
     right: 250,
     //right: -30,
-    width: 70,
+    width: 50,
     position: 'absolute',
     justifyContent: 'center',
     margin: 10,
