@@ -2,13 +2,10 @@ import React, {useState, useEffect} from 'react';
 import {Text, ImageBackground, View, StyleSheet, Pressable, Image, TouchableOpacity, Alert} from 'react-native'
 const Resume = '../../../../assets/data/images/resume.png'
 
-const handleResume = () => {
-  console.warn("ok")
-};
 //style={{ width: 50, height: 50, justifyContent: "left", bottom: 310, left: 10 }}
 const Profile = (props) => {
 
-    const {name, image, bio, school, year} = props.user;
+    const {name, image, bio, school, year, resume} = props.user;
 
     return(
         <View style={styles.profile}>

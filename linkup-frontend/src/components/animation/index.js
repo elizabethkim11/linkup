@@ -127,6 +127,17 @@ const Animation = (props) => {
             resizeMode = 'contain'/> 
             <Animated.Image source={Nope} style={[styles.like, {right: 10}, rejectStyle]}
             resizeMode = 'contain'/> 
+            <Pressable onPress={toggleModal} style={styles.resumeButton}>
+            <Text style={{fontSize: 27}}>📝</Text>
+              <Modal isVisible={isModalVisible}>
+              <Animated.Image source={Resume} style={styles.aniResume}
+            resizeMode = 'contain'/> 
+
+              <Pressable title="Close" onPress={toggleModal} style={styles.closeButton}>
+                <Text style={{fontSize:20, color:'white',}}>X</Text>
+              </Pressable>
+              </Modal>
+            </Pressable>
             {renderItem({item: currProfile})}
           </Animated.View>
         </PanGestureHandler>
