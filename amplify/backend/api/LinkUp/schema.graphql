@@ -13,6 +13,7 @@ type Match @model @auth(rules: [{allow: public}]) {
   RecruiterMatch: Recruiter @hasOne
   User: String
   Recruiter: String
+  isMatch: Boolean
 }
 
 type User @model @auth(rules: [{allow: public}]) {
