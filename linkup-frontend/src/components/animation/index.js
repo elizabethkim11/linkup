@@ -108,6 +108,7 @@ const Animation = (props) => {
 
   useEffect(() => {
     setCurrUser(currProfile)
+    console.log(currProfile)
   }, [currProfile, setCurrUser]); 
 
 
