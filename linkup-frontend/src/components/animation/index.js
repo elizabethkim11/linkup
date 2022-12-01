@@ -11,8 +11,8 @@ import Animated, { useSharedValue,
 } from 'react-native-reanimated'
 import {PanGestureHandler} from 'react-native-gesture-handler'
 import useWindowDimensions from 'react-native/Libraries/Utilities/useWindowDimensions';
-import Like from 'linkup/assets/data/images/LIKE.png'
-import Nope from 'linkup/assets/data/images/nope.png'
+import Like from 'linkup/assets/data/images/hired.png'
+import Nope from 'linkup/assets/data/images/rejected.png'
 import Resume from 'linkup/assets/data/images/ebeth.png'
 import Modal from "react-native-modal";
 
