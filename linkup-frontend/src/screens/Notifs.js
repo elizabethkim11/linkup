@@ -1,8 +1,19 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {View, Text, Alert, StyleSheet, SafeAreaView, Pressable, TextInput, Image} from 'react-native';
 import companies from 'linkup/assets/data/companies.js'
+import {DataStore} from'aws-amplify'
+import {Match} from '../../../src/models'
 
 const Notifs = ({navigation}) => {
+  const [matches,setMatches]=useState([]);
+
+useEffect(()=>{
+  const fetchMatches = async()=>{
+    const result = await DataStore.query(Match);
+    console.warn(result);
+  };
+  fetchMatches();
+},[])
 
   const handleCandidate = () => {
     navigation.navigate("Candidate");

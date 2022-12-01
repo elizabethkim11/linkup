@@ -3,15 +3,32 @@ import {View, Text, StyleSheet, SafeAreaView, Pressable, TextInput,} from 'react
 import Profile from 'linkup/linkup-frontend/src/components/profile/index.js';
 // import users from 'linkup/assets/data/candidates'
 import Animation from 'linkup/linkup-frontend/src/components/animation/index.js'
-import { DataStore } from 'aws-amplify';
-import {User} from '../../../src/models';
+import { DataStore, Auth } from 'aws-amplify';
+import {User,Match} from '../../../src/models';
 
 
 const Home = ({navigation}) => { 
   const [activeScreen, setActiveScreen] = useState('');
   const [users, setUsers] = useState([]);
   const [currentUser, setCurrUser] = useState(null);
+  const [me, setMe] = useState(null);
 
+  useEffect(() => {
+    const getCurrentUser = async () => {
+        const user = await Auth.currentAuthenticatedUser();
+        const dbUsers = DataStore.query(
+            User,
+            u => u.sub === user.attributes.sub);
+        if (dbUsers.length < 0) {
+            return;
+        }
+        setMe(dbUsers[0]);
+        
+    };
+    getCurrentUser();
+}, []);
+
+  
   useEffect(()=>{
     const fetchUser = async () => {
       setUsers(await DataStore.query(User))
@@ -20,17 +37,27 @@ const Home = ({navigation}) => {
   }, []);
 
   const onSwipeLeft = () => {
-    if (!currentUser) {
+    if (!currentUser||!me) {
       return;
     }
     console.warn("Rejected", currentUser.name)
+   
   };
 
   const onSwipeRight = () => {
-    if (!currentUser) {
+    if (!currentUser||!me) {
       return;
     }
-    console.warn("Connected with", currentUser.name)
+
+    const newMatch = new Match({
+      User: currentUser.name,
+      Recruiter: me.name,
+      isMatch: true,
+    })
+
+    console.warn("Connected with", currentUser.name);
+    DataStore.save(newMatch);
+    console.log('new match saved!!');
   };
 
   const handleSwipe = () => {

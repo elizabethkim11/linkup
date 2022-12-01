@@ -48,6 +48,7 @@ type EagerMatch = {
   readonly RecruiterMatch?: Recruiter | null;
   readonly User?: string | null;
   readonly Recruiter?: string | null;
+  readonly isMatch?: boolean | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
   readonly matchUserMatchId?: string | null;
@@ -60,6 +61,7 @@ type LazyMatch = {
   readonly RecruiterMatch: AsyncItem<Recruiter | undefined>;
   readonly User?: string | null;
   readonly Recruiter?: string | null;
+  readonly isMatch?: boolean | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
   readonly matchUserMatchId?: string | null;
