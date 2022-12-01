@@ -1,9 +1,15 @@
-import React from 'react'
-import {Text, ImageBackground, View, StyleSheet, Pressable} from 'react-native'
+import React, {useState, useEffect} from 'react';
+import {Text, ImageBackground, View, StyleSheet, Pressable, Image, TouchableOpacity, Alert} from 'react-native'
+const Resume = '../../../../assets/data/images/resume.png'
 
-
+const handleResume = () => {
+  console.warn("ok")
+};
+//style={{ width: 50, height: 50, justifyContent: "left", bottom: 310, left: 10 }}
 const Profile = (props) => {
-    const {name, image, bio, school, year} = props.user;
+
+    const {name, headshot, blurb, school, year, resume} = props.user;
+
     return(
         <View style={styles.profile}>
         <ImageBackground
@@ -11,12 +17,14 @@ const Profile = (props) => {
             uri: image,
           }}
           style={styles.headshot}>
+            
         </ImageBackground>
         <View style={styles.profileInner}>
           <Text style={styles.name}>{name}</Text>
           {/* <Text>{console.warn(image)}</Text> */}
           <Text style={styles.blurb}>{bio}</Text>
           <Text style={styles.blurb}>{school} {year}</Text>
+          {/*<Image source={{uri: resume}} style={{width:50,height:50, zIndex: 999, bottom: 550, justifyContent: 'center', alignItems: 'center', }}></Image>*/}
         </View>
         {/* <Pressable onPress={() => Auth.signIn("username", password )}>
           <Text> Sign In</Text>
@@ -31,6 +39,18 @@ const Profile = (props) => {
 }
 
 const styles = StyleSheet.create({
+  resumeButton: {
+    backgroundColor: '#b87046',
+    height: 50,
+    bottom: 310,
+    //right: -30,
+    width: 70,
+    justifyContent: 'center',
+    margin: 10,
+    alignItems: 'center',
+    borderRadius: 20,
+    zIndex: 999,
+  },
   pageContainer: {
     flex: 1,
     backgroundColor: 'white',
