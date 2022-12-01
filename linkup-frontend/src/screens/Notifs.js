@@ -9,6 +9,14 @@ import React, { useState } from "react";
 const Notifs = ({navigation}) => {
   const [isEnabled, setIsEnabled] = useState(false);
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+  const [currCompanies, setCurrCompanies] = useState(null);
+
+  useEffect(()=>{
+    const fetchUser = async () => {
+      setCurrCompanies(await DataStore.query(Recruiter))
+    }
+    fetchUser();
+  }, []);
 
   const handleCandidate = () => {
     navigation.navigate("Candidate");
@@ -36,7 +44,7 @@ const Notifs = ({navigation}) => {
             style={{bottom: 35, left: 230}}
           />
           <View style={styles.companies}>
-            {companies.map(company => (
+            {currCompanies.map(company => (
               <View style={styles.company} key={company.companyID}>
                 <Image source={{uri: company.logo}} style={styles.logo} />
               </View>
