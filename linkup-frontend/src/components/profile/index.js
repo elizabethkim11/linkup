@@ -1,12 +1,24 @@
 import React, {useState, useEffect} from 'react';
 import {Text, ImageBackground, View, StyleSheet, Pressable, Image, TouchableOpacity, Alert} from 'react-native'
-const Resume = '../../../../assets/data/images/resume.png'
+import Modal from 'react-native-modal'
+import Animated, { useSharedValue, 
+  useAnimatedStyle, 
+  useDerivedValue,
+  useAnimatedGestureHandler,
+  interpolate,
+  withSpring,
+  runOnJS,
+} from 'react-native-reanimated'
+import Resume1 from 'linkup/assets/data/images/ebeth.png'
 
 //style={{ width: 50, height: 50, justifyContent: "left", bottom: 310, left: 10 }}
 const Profile = (props) => {
 
     const {name, image, bio, school, year, resume} = props.user;
-
+    const toggleModal = () => {
+      setModalVisible(!isModalVisible);
+    };
+    const [isModalVisible, setModalVisible] = useState(false);
     return(
         <View style={styles.profile}>
         <ImageBackground
@@ -17,6 +29,17 @@ const Profile = (props) => {
             
         </ImageBackground>
         <View style={styles.profileInner}>
+        <Pressable onPress={toggleModal} style={styles.resumeButton}>
+            <Text style={{fontSize: 27}}>📝</Text>
+              <Modal isVisible={isModalVisible}>
+              <Animated.Image source={{uri: resume}} style={styles.aniResume}
+            resizeMode = 'contain'/> 
+
+              <Pressable title="Close" onPress={toggleModal} style={styles.closeButton}>
+                <Text style={{fontSize:20, color:'white',}}>X</Text>
+              </Pressable>
+              </Modal>
+            </Pressable>
           <Text style={styles.name}>{name}</Text>
           {/* <Text>{console.warn(image)}</Text> */}
           <Text style={styles.blurb}>{bio}</Text>
@@ -39,7 +62,8 @@ const styles = StyleSheet.create({
   resumeButton: {
     backgroundColor: '#b87046',
     height: 50,
-    bottom: 310,
+    bottom: 500,
+    right: 7,
     //right: -30,
     width: 70,
     justifyContent: 'center',
@@ -53,6 +77,20 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  closeButton: {
+    backgroundColor: 'red',
+    height: 30,
+    bottom: 505,
+    right: 290,
+    //right: -30,
+    width: 30,
+    position: 'absolute',
+    justifyContent: 'center',
+    margin: 10,
+    alignItems: 'center',
+    borderRadius: 20,
+    zIndex: 999,
   },
   profile: {
     width: '100%',
@@ -69,6 +107,13 @@ const styles = StyleSheet.create({
     shadowRadius: 6.68,
     elevation: 11,
   },
+  aniResume: {
+    width: '100%',
+    height: '150%',
+    position: 'absolute',
+    buttoms: 40,
+    zIndex:1,
+  },
   profileInner: {
     padding: 10,
   },
@@ -81,7 +126,9 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end'
   },
   name: {
-    bottom: 110,
+    position: 'absolute',
+    left: 10,
+    bottom: 205,
     fontSize: 30,
     color: 'white',
     fontWeight: 'bold',
@@ -95,7 +142,7 @@ const styles = StyleSheet.create({
     // fontFamily: 'Times New Roman',
   },
   blurb: {
-    bottom: 108,
+    bottom: 140,
     fontSize: 18,
     // fontWeight: 'bold',
     color: 'white',

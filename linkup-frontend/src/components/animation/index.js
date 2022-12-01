@@ -108,7 +108,6 @@ const Animation = (props) => {
 
   useEffect(() => {
     setCurrUser(currProfile)
-    console.log(currProfile)
   }, [currProfile, setCurrUser]); 
 
 
@@ -117,6 +116,17 @@ const Animation = (props) => {
       {nextProfile && (
         <View style={styles.nextProfContainer}>
           <Animated.View style = {[styles.animatedProf, nextProfStyle]}>
+          <Pressable onPress={toggleModal} style={styles.resumeButton}>
+            <Text style={{fontSize: 27}}>📝</Text>
+              <Modal isVisible={isModalVisible}>
+              <Animated.Image source={Resume} style={styles.aniResume}
+            resizeMode = 'contain'/> 
+
+              <Pressable title="Close" onPress={toggleModal} style={styles.closeButton}>
+                <Text style={{fontSize:20, color:'white',}}>X</Text>
+              </Pressable>
+              </Modal>
+            </Pressable>
             {renderItem({item: nextProfile})}
           </Animated.View>
         </View>
@@ -128,17 +138,6 @@ const Animation = (props) => {
             resizeMode = 'contain'/> 
             <Animated.Image source={Nope} style={[styles.like, {right: 10}, rejectStyle]}
             resizeMode = 'contain'/> 
-            <Pressable onPress={toggleModal} style={styles.resumeButton}>
-            <Text style={{fontSize: 27}}>📝</Text>
-              <Modal isVisible={isModalVisible}>
-              <Animated.Image source={Resume} style={styles.aniResume}
-            resizeMode = 'contain'/> 
-
-              <Pressable title="Close" onPress={toggleModal} style={styles.closeButton}>
-                <Text style={{fontSize:20, color:'white',}}>X</Text>
-              </Pressable>
-              </Modal>
-            </Pressable>
             {renderItem({item: currProfile})}
           </Animated.View>
         </PanGestureHandler>
