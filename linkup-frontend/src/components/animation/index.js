@@ -116,7 +116,7 @@ const Animation = (props) => {
       ):
         (
           <View>
-            <Text> No Users Found</Text>
+            <Text> Oops, no more candidates! </Text>
           </View>
 
         )
