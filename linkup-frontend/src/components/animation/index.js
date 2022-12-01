@@ -28,7 +28,6 @@ const Animation = (props) => {
   const [nextIndex, setNextIndex] = useState(currIndex + 1)
   const currProfile = data[currIndex];
   const nextProfile = data[nextIndex];
-  const currResume = currProfile.resume;
   const {width: screenWidth} =  useWindowDimensions();
   const translateX = useSharedValue(0);
   const rotate = useDerivedValue( () => 
