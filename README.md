@@ -8,9 +8,9 @@ https://nodejs.org/en/download/
 
 Then, run the following commands to install the required dependencies:
 
-npm add @icons-pack/react-simple-icons --save 
-npm add @react-native-async-storage/async-storage --save 
-npm add @react-native-community/masked-view --save 
+npm add @icons-pack/react-simple-icons --save
+npm add @react-native-async-storage/async-storage --save
+npm add @react-native-community/masked-view --save
 npm add @react-native-community/netinfo --save 
 npm add @react-navigation/native --save 
 npm add @react-navigation/native-stack --save 
