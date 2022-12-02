@@ -6,8 +6,12 @@ import companies from 'linkup/assets/data/companies.js'
 import React, { useEffect, useState } from "react";
 
 const Notifs = ({navigation}) => {
-  const [isEnabled, setIsEnabled] = useState(false);
-  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+  const [isEnabled, setIsEnabled] = useState(true);
+  const toggleSwitch = () => {
+    // setIsEnabled(previousState => !previousState);
+    setIsEnabled(true);
+    console.warn(isEnabled)
+  }
   const [currCompanies, setCurrCompanies] = useState([]);
 
   var test = [];
@@ -26,7 +30,47 @@ const Notifs = ({navigation}) => {
   const handleNotifs = () => {
   navigation.navigate("Notifs");
   };
-
+    if(isEnabled){
+      return(
+      <SafeAreaView style={styles.root}>
+        <View style={styles.container}>
+          <Text style={{fontWeight: 'bold', fontSize: 30, color: '#2F4961'}}>
+            Potential Jobs
+          </Text>
+          <Text style={{fontWeight: 'bold', fontSize: 20, color: '#2F4961'}}> 
+            {"\n"}Only show companies{"\n"}that have swiped right:
+          </Text>
+          <Switch
+            trackColor={{ false: "#767577", true: "#81b0ff" }}
+            thumbColor={isEnabled ? "white" : "#f4f3f4"}
+            ios_backgroundColor="#3e3e3e"
+            onValueChange={() => setIsEnabled(!isEnabled)}
+            value={isEnabled}
+            style={{bottom: 35, left: 230}}
+          />
+          <View style={styles.companies}>
+              <View style={styles.company} key={'Amazon'}>
+                <Image source={{uri: 'https://1000logos.net/wp-content/uploads/2016/10/Amazon-logo-meaning.jpg'}} style={styles.logo} />
+              </View>
+          </View>
+        </View>
+          
+        <View style={styles.pageContainer}>
+            <View>
+                <Pressable onPress={handleNotifs} style={styles.nav_button1}>
+                    <Text style={{fontWeight: 'bold'}}>Notifications</Text>
+                </Pressable>
+            </View>
+            <View>
+                <Pressable onPress={handleCandidate} style={styles.nav_button2}>
+                    <Text style={{fontWeight: 'bold', color: 'white'}}>My Profile</Text>
+                </Pressable>
+            </View>
+            </View>
+      </SafeAreaView>
+      )
+    }
+    else{
     return (
         <SafeAreaView style={styles.root}>
         <View style={styles.container}>
@@ -67,6 +111,7 @@ const Notifs = ({navigation}) => {
             </View>
       </SafeAreaView>
     );
+            }
 };
 
 const styles = StyleSheet.create({
