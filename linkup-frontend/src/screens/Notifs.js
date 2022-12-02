@@ -6,8 +6,12 @@ import companies from 'linkup/assets/data/companies.js'
 import React, { useEffect, useState } from "react";
 
 const Notifs = ({navigation}) => {
-  const [isEnabled, setIsEnabled] = useState(false);
-  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+  const [isEnabled, setIsEnabled] = useState(true);
+  const toggleSwitch = () => {
+    // setIsEnabled(previousState => !previousState);
+    setIsEnabled(true);
+    console.warn(isEnabled)
+  }
   const [currCompanies, setCurrCompanies] = useState([]);
 
   var test = [];
@@ -27,6 +31,7 @@ const Notifs = ({navigation}) => {
   navigation.navigate("Notifs");
   };
     if(isEnabled){
+      return(
       <SafeAreaView style={styles.root}>
         <View style={styles.container}>
           <Text style={{fontWeight: 'bold', fontSize: 30, color: '#2F4961'}}>
@@ -39,7 +44,7 @@ const Notifs = ({navigation}) => {
             trackColor={{ false: "#767577", true: "#81b0ff" }}
             thumbColor={isEnabled ? "white" : "#f4f3f4"}
             ios_backgroundColor="#3e3e3e"
-            onValueChange={toggleSwitch}
+            onValueChange={() => setIsEnabled(!isEnabled)}
             value={isEnabled}
             style={{bottom: 35, left: 230}}
           />
@@ -63,9 +68,10 @@ const Notifs = ({navigation}) => {
             </View>
             </View>
       </SafeAreaView>
+      )
     }
+    else{
     return (
-      
         <SafeAreaView style={styles.root}>
         <View style={styles.container}>
           <Text style={{fontWeight: 'bold', fontSize: 30, color: '#2F4961'}}>
@@ -105,6 +111,7 @@ const Notifs = ({navigation}) => {
             </View>
       </SafeAreaView>
     );
+            }
 };
 
 const styles = StyleSheet.create({
