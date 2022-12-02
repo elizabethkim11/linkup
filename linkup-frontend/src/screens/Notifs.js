@@ -8,9 +8,7 @@ import React, { useEffect, useState } from "react";
 const Notifs = ({navigation}) => {
   const [isEnabled, setIsEnabled] = useState(true);
   const toggleSwitch = () => {
-    // setIsEnabled(previousState => !previousState);
     setIsEnabled(true);
-    console.warn(isEnabled)
   }
   const [currCompanies, setCurrCompanies] = useState([]);
 

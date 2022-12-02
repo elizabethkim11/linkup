@@ -19,51 +19,6 @@ const Signup = ({navigation}) => {
         navigation.navigate("Candidate");
       }
 
-    // const [name, setName] = useState('');
-    // const [blurb, setBlurb] = useState('');
-    // const [email, setEmail] = useState('');
-
-    // useEffect(() => {
-    //     const getCurrentUser = async () => {
-    //         const user = await Auth.currentAuthenticatedUser();
-    //         const dbUsers = DataStore.query(
-    //             User,
-    //             u => u.sub === user.attributes.sub);
-    //         if (dbUsers.length < 0) {
-    //             return;
-    //         }
-    //         const dbUser = dbUsers[0];
-    //         setName(dbUsers.name);
-    //         setBlurb(dbUsers.blurb);
-    //         setSchool(dbUsers.school);
-    //         setYear(dbUsers.year);
-    //     };
-    //     getCurrentUser();
-    // }, []);
-    
-    // const validInput = () => {
-    //     return name && blurb && email;
-    // };
-
-    // const save = async () => {
-    //     if (!validInput()) {
-    //         console.warn('Invalid input');
-    //         return;
-    //     }
-
-    //     // const user = await Auth.currentAuthenticatedUser();
-    //     // console.log(user);
-
-    //     const newCandidate = new Candidate({
-    //         sub: user.attributes.sub,
-    //         name,
-    //         blurb,
-    //         email,
-    //     });
-    //     console.log(newCandidate);
-    //     DataStore.save(newCandidate);
-    // };
-
     return (
         <SafeAreaView style={styles.root}>
             <View style={styles.container}>

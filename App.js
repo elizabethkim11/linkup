@@ -20,7 +20,12 @@ import Recruiters from './linkup-frontend/src/screens/Recruiter';
 import Candidates from './linkup-frontend/src/screens/Candidate';
 
 
-Amplify.configure(config);
+Amplify.configure({
+  ...config,
+  Analytics: {
+    disabled: true,
+  },
+});
 
 const App = () => { 
   const Stack = createNativeStackNavigator();
