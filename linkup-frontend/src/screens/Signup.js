@@ -7,15 +7,40 @@ import {View, Text, StyleSheet, SafeAreaView, Pressable, TextInput,} from 'react
 // import {Auth} from 'aws-amplify';
 import Recruiter from 'linkup/linkup-frontend/src/screens/Recruiter.js';
 import Candidate from 'linkup/linkup-frontend/src/screens/Candidate.js';
+import {Recruiter} from '../../../src/models';
+import {User} from '../../../src/models';
 
 const Signup = ({navigation}) => {
     const [activeScreen, setActiveScreen] = useState('');
+    const [users, setUsers] = useState([]);
+    const [currCompanies, setCurrCompanies] = useState([]);
+
+    useEffect(()=>{
+        const fetchUser = async () => {
+          setUsers(await DataStore.query(User));
+          const newUsers = users.map(element => element.sub)
+        }
+        fetchUser();
+
+        const fetchRecruiter = async () => {
+            setCurrCompanies(await DataStore.query(Recruiter))
+          }
+          fetchRecruiter();
+      }, []);
+
+
 
     const handleRecruiter = () => {
+        if(newUsers){
+            return
+        }
         navigation.navigate("Recruiter");
       };
     
       const handleCandidate = () => {
+        if(newUsers){
+            return
+        }
         navigation.navigate("Candidate");
       }
 
