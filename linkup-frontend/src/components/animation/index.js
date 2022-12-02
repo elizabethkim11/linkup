@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler';
 import React, {useState, useEffect} from 'react';
-import {View, StyleSheet, Pressable, Text, Alert} from 'react-native';
+import {View, StyleSheet, Pressable, Text} from 'react-native';
 import Animated, { useSharedValue, 
   useAnimatedStyle, 
   useDerivedValue,
@@ -121,7 +121,7 @@ const Animation = (props) => {
               <Modal isVisible={isModalVisible}>
               <Animated.Image source={Resume} style={styles.aniResume}
             resizeMode = 'contain'/> 
-              {/* {console.warn(Resume)} */}
+
               <Pressable title="Close" onPress={toggleModal} style={styles.closeButton}>
                 <Text style={{fontSize:20, color:'white',}}>X</Text>
               </Pressable>
