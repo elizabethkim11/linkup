@@ -6,7 +6,7 @@ import companies from 'linkup/assets/data/companies.js'
 import React, { useEffect, useState } from "react";
 
 const Notifs = ({navigation}) => {
-  const [isEnabled, setIsEnabled] = useState(true);
+  const [isEnabled, setIsEnabled] = useState(false);
   const toggleSwitch = () => {
     setIsEnabled(true);
   }
